@@ -84,10 +84,11 @@ h1{font-size:clamp(34px,6vw,56px);line-height:1.05;letter-spacing:-.025em;font-w
 .fact{background:#fff;border-radius:18px;padding:16px 20px}
 .fact small{display:block;color:var(--mute);font-size:13px;margin-bottom:4px}
 .fact b{font-size:21px;line-height:1.2;letter-spacing:-.01em;display:block;white-space:nowrap}
-.tabs{display:flex;gap:4px;background:#e8e8ed;border-radius:14px;padding:4px;overflow-x:auto;scrollbar-width:none;margin-bottom:12px;position:sticky;top:49px;z-index:3}
+.tabs{display:flex;gap:8px;background:rgba(255,255,255,.88);-webkit-backdrop-filter:saturate(180%) blur(16px);backdrop-filter:saturate(180%) blur(16px);padding:8px 2px;overflow-x:auto;scrollbar-width:none;margin-bottom:12px;position:sticky;top:49px;z-index:3}
 .tabs::-webkit-scrollbar{display:none}
-.tab{flex:1 0 auto;border:0;background:transparent;border-radius:10px;padding:10px 14px;min-height:44px;font-size:15px;font-weight:500;cursor:pointer;white-space:nowrap;color:var(--mute);transition:background .2s,color .2s}
-.tab[aria-selected=true]{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.tab{flex:1 0 auto;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 16px;min-height:44px;font-size:15px;font-weight:500;cursor:pointer;white-space:nowrap;color:var(--ink);transition:background .2s,border-color .2s,box-shadow .2s}
+.tab:hover{border-color:#b9b9c0}
+.tab[aria-selected=true]{background:linear-gradient(90deg,rgba(10,132,255,.10),rgba(94,92,230,.10) 35%,rgba(255,55,95,.09) 70%,rgba(255,159,10,.10)) ,#fff;border-color:rgba(94,92,230,.35);color:var(--ink);font-weight:600;box-shadow:0 2px 10px rgba(94,92,230,.12)}
 .pane{background:#fff;border-radius:22px;padding:clamp(20px,3vw,36px);min-height:260px}
 .pane h3{font-size:24px;letter-spacing:-.01em;margin:0 0 18px;font-weight:700}
 ol.steps{list-style:none;margin:0;padding:0;counter-reset:s;max-width:720px}
@@ -384,8 +385,9 @@ const tagsEl=document.getElementById('tags'),resEl=document.getElementById('res'
 tagsEl.innerHTML=TAGS.map(([k,n])=>`<button class="tag" data-k="${k}" aria-pressed="false">${n}</button>`).join('');
 function score(id){if(!sel.size)return null;const s=SC[id]||'';let sum=0,zero=false;TAGS.forEach(([k],i)=>{if(sel.has(k)){const v=+s[i]||0;sum+=v;if(!v)zero=true}});return{p:Math.round(sum/(2*sel.size)*100),zero}}
 function paintScores(){
-  for(const id in shapes){const sc=score(id),off=stF&&byId(id).st!==stF;shapes[id].style.opacity=off?.08:sc?(.18+.82*sc.p/100):(id===cur?1:.5)}
-  for(const id in pins){const sc=score(id),off=stF&&byId(id).st!==stF;pins[id].g.style.opacity=off?.12:sc?(sc.p>=50?1:.35):1;pins[id].g.style.pointerEvents=off?'none':''}
+  for(const id in shapes){const sc=score(id),off=stF&&byId(id).st!==stF,s=shapes[id].style;s.fill=off?'var(--land)':'';s.pointerEvents=off?'none':'';s.cursor=off?'default':'';s.opacity=off?1:sc?(.18+.82*sc.p/100):(id===cur?1:.5)}
+  for(const id in pins){const sc=score(id),off=stF&&byId(id).st!==stF,g=pins[id].g;g.style.display=off?'none':'';g.setAttribute('tabindex',off?'-1':'0');g.style.opacity=sc?(sc.p>=50?1:.35):1}
+  const pu=document.getElementById('pulse');if(pu)pu.style.visibility=stF&&cur&&byId(cur).st!==stF?'hidden':'';
 }
 function renderRes(){
   if(!sel.size){resEl.innerHTML='';document.getElementById('pcount').textContent='Ничего не выбрано — покажем все страны';paintScores();return}
