@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<base href="../"><script>(function(){var b=document.querySelector("base");b.href=new URL(b.getAttribute("href"),location.href).href})()</script>
+<meta name="routing" content="path">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Греция для россиян: виза, граница, цены — Куда.ру</title>
+<meta name="description" content="Острова, Афины и античность. Греция — одна из стран Шенгена, которые продолжают выдавать визы россиянам.">
+<link rel="canonical" href="https://USERNAME.github.io/mirotkryt/greece/">
+<meta property="og:title" content="Греция для россиян: виза, граница, цены — Куда.ру">
+<meta property="og:description" content="Острова, Афины и античность. Греция — одна из стран Шенгена, которые продолжают выдавать визы россиянам.">
+<meta property="og:url" content="https://USERNAME.github.io/mirotkryt/greece/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: спокойный, уверенный, как страница продукта Apple — много воздуха, короткие фразы
+   IDEA: глобус-навигатор — карта как витрина, страна раскрывается карточкой-инструкцией с разделами
+   PICTURE: светлая карта всего мира с зумом; ключевые слова — переливающийся градиент, 15 стран подсвечены цветом статуса въезда, флаги-кружки
+   COLOUR and TYPE: белый и #f5f5f7, графит #1d1d1f, синий #0071e3; статусы — системные зелёный/оранжевый/красный; Inter
+   LAYOUT: заголовок по центру, карта, лента флагов, ниже карточка: цифры, сегментированное меню разделов, контент */
+:root{color-scheme:light;--bg:#fff;--soft:#f5f5f7;--ink:#1d1d1f;--mute:#6e6e73;--line:#d2d2d7;--blue:#0071e3;--free:#28a745;--arr:#e08600;--visa:#e5352b;--land:#e3e3e8}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+button{font:inherit;color:inherit}
+nav.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}
+nav.top div{max-width:1100px;margin:auto;padding:12px max(5vw,16px);display:flex;justify-content:space-between;align-items:center;font-size:14px}
+nav.top b{font-weight:600}nav.top span{color:var(--mute)}
+.hero{text-align:center;padding:clamp(36px,6vw,80px) max(5vw,16px) 8px}
+h1{font-size:clamp(34px,6vw,56px);line-height:1.05;letter-spacing:-.025em;font-weight:700;margin:0 auto 14px;max-width:22ch;text-wrap:balance}
+.lead{font-size:clamp(18px,2.2vw,21px);color:var(--mute);max-width:36em;margin:0 auto;text-wrap:balance}
+.mapwrap{max-width:1180px;margin:0 auto;padding:12px max(3vw,12px) 0;position:relative}
+.map{width:100%;height:auto;aspect-ratio:2/1;display:block}
+.map .base{fill:var(--land);stroke:#fff}
+.map .c{cursor:pointer;stroke:#fff;transition:opacity .25s}
+.map .c:focus{outline:none}
+.map .pin{cursor:pointer}
+.map .pin .r{fill:#fff}
+.map .pin .halo{fill-opacity:.2;opacity:0}
+.pulse{position:absolute;left:0;top:0;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;pointer-events:none;opacity:0;will-change:transform,opacity}
+.pulse.go{animation:pulse 1.8s ease-out infinite}
+@keyframes pulse{from{transform:scale(.6);opacity:.45}to{transform:scale(1.9);opacity:0}}
+@media(prefers-reduced-motion:reduce){.pulse.go{animation:none;opacity:.35}}
+.tip{position:absolute;pointer-events:none;transition:opacity .2s;opacity:0;background:#fff;border-radius:980px;padding:6px 12px 6px 6px;font:600 14px Inter,sans-serif;box-shadow:0 4px 18px rgba(0,0,0,.14);display:flex;align-items:center;gap:8px;transform:translate(-50%,calc(-100% - 14px));white-space:nowrap;opacity:0;transition:opacity .15s}
+.tip img{width:22px;height:22px;border-radius:50%}
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;font-size:14px;color:var(--mute);margin:8px 0 0}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px}
+.chips{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;padding:20px max(5vw,16px) 10px;max-width:1180px;margin:0 auto;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+@media(min-width:1000px){.chips{flex-wrap:wrap;justify-content:center;overflow:visible}}
+.chip{flex:none;scroll-snap-align:start;font-weight:500;font-size:15px;border:1px solid var(--line);background:#fff;border-radius:980px;padding:6px 16px 6px 6px;min-height:44px;cursor:pointer;display:flex;align-items:center;gap:9px;transition:background .2s,border-color .2s}
+.chip:hover{border-color:#86868b}.chip:focus-visible,.tab:focus-visible{outline:3px solid rgba(0,113,227,.4);outline-offset:2px}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.flag{width:30px;height:30px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px rgba(0,0,0,.08);flex:none;background:#eee}
+.band{background:var(--soft);margin-top:30px;padding:clamp(28px,5vw,72px) max(5vw,16px)}
+.card{max-width:1100px;margin:auto}
+.head{display:flex;align-items:center;gap:18px;margin-bottom:8px}
+.head .flag{width:64px;height:64px;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 6px 18px rgba(0,0,0,.1)}
+.head h2{font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0;font-weight:700}
+.badge{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;border-radius:980px;padding:4px 12px;background:#fff;margin-bottom:6px}
+.badge i{width:9px;height:9px;border-radius:50%}
+.sub{color:var(--mute);margin:12px 0 24px;max-width:44em}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:22px}
+.fact{background:#fff;border-radius:18px;padding:16px 20px}
+.fact small{display:block;color:var(--mute);font-size:13px;margin-bottom:4px}
+.fact b{font-size:21px;line-height:1.2;letter-spacing:-.01em;display:block;white-space:nowrap}
+.tabs{display:flex;gap:4px;background:#e8e8ed;border-radius:14px;padding:4px;overflow-x:auto;scrollbar-width:none;margin-bottom:12px;position:sticky;top:49px;z-index:3}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:1 0 auto;border:0;background:transparent;border-radius:10px;padding:10px 14px;min-height:44px;font-size:15px;font-weight:500;cursor:pointer;white-space:nowrap;color:var(--mute);transition:background .2s,color .2s}
+.tab[aria-selected=true]{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.pane{background:#fff;border-radius:22px;padding:clamp(20px,3vw,36px);min-height:260px}
+.pane h3{font-size:24px;letter-spacing:-.01em;margin:0 0 18px;font-weight:700}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s;max-width:720px}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 20px 50px}
+ol.steps li:last-child{padding-bottom:0}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0a84ff,#5e5ce6 45%,#ff375f 85%,#ff9f0a);box-shadow:0 3px 10px rgba(94,92,230,.3);color:#fff;font:600 15px/32px Inter,sans-serif;text-align:center}
+ol.steps li:not(:last-child)::after{content:"";position:absolute;left:15.5px;top:38px;bottom:6px;width:1px;background:var(--line)}
+ol.steps b{display:block;font-weight:600}
+ol.steps span{color:var(--mute);font-size:16px}
+ul.list{margin:0;padding:0;list-style:none;max-width:760px}
+ul.list li{padding:11px 0 11px 30px;position:relative;border-top:1px solid #ececf0;font-size:16px}
+ul.list li:first-child{border-top:0;padding-top:0}
+ul.list li::before{position:absolute;left:2px;font-weight:700;content:"•";color:var(--blue)}
+ul.pro li::before{content:"+";color:var(--free)}
+ul.con li::before{content:"−";color:var(--visa)}
+ul.check li::before{content:"";left:0;top:13px;width:16px;height:16px;border-radius:5px;border:1.5px solid #86868b}
+ul.check li:first-child::before{top:2px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,4vw,48px)}
+.costs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:22px;max-width:760px}
+.cost{background:var(--soft);border-radius:16px;padding:14px 18px}
+.cost small{color:var(--mute);font-size:13px;display:block}.cost b{font-size:22px;white-space:nowrap}
+.places{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.place:first-child{grid-column:1/-1}.place:first-child .ph{aspect-ratio:21/9}.place:first-child b{font-size:21px}
+.place{border-radius:18px;overflow:hidden;background:var(--soft);display:flex;flex-direction:column}
+.ph{position:relative;aspect-ratio:3/2;background:linear-gradient(135deg,#dfe6ee,#c9d4e0)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.info{position:absolute;right:10px;bottom:10px;width:28px;height:28px;border-radius:50%;border:0;background:rgba(255,255,255,.75);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font:italic 600 14px/28px Georgia,serif;color:#1d1d1f;cursor:pointer;padding:0;opacity:.7;transition:opacity .2s}
+.info::after{content:"";position:absolute;inset:-8px}
+.info:hover,.info:focus-visible,.info[aria-expanded=true]{opacity:1}
+.credit{position:absolute;right:10px;bottom:46px;max-width:calc(100% - 20px);background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.45;color:var(--ink);box-shadow:0 4px 16px rgba(0,0,0,.15)}
+.credit[hidden]{display:none}
+.credits{max-width:1100px;margin:0 auto;text-align:left;font-size:13px;color:var(--mute)}
+.credits summary{cursor:pointer;color:var(--blue);display:inline-block;padding:10px 0;min-height:44px}
+.credits ol{columns:2;column-gap:32px;padding-left:20px;margin:8px 0 0}
+.credits li{break-inside:avoid;margin-bottom:6px}
+@media(max-width:600px){.credits ol{columns:1}}
+.ph .no{position:absolute;inset:0;display:grid;place-items:center;color:#7b8794;font-size:14px}
+.place div.t{padding:16px 18px 18px}
+.place b{display:block;font-size:17px;margin-bottom:4px;line-height:1.3}
+.place p{margin:0;color:var(--mute);font-size:15px;line-height:1.45}
+.src{font-size:14px;color:var(--mute);margin-top:22px;display:flex;flex-wrap:wrap;gap:4px 14px}
+.src a{white-space:nowrap}
+.warn{max-width:1100px;margin:16px auto 0;font-size:14px;color:var(--mute)}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:28px 16px 40px}
+@media(max-width:860px){.places{grid-template-columns:minmax(0,1fr)}.place:first-child .ph{aspect-ratio:3/2}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){body{font-size:16px}.fact b{font-size:18px}.head .flag{width:52px;height:52px}.costs{grid-template-columns:minmax(0,1fr)}.tabs{top:45px}}
+.cta{display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:var(--blue);color:#fff;border:0;border-radius:980px;padding:12px 22px;min-height:44px;font-size:17px;font-weight:500;cursor:pointer;transition:background .2s}
+.cta:hover{background:#0077ed}.cta:focus-visible{outline:3px solid rgba(0,113,227,.4);outline-offset:3px}
+.cta.ghost{background:transparent;color:var(--blue);padding:12px 8px}
+.map{touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.map.drag{cursor:grabbing}
+.mapbox{overflow:hidden;border-radius:18px;background:#f8f8fa;contain:layout paint}
+.map{transform-origin:0 0;will-change:transform}
+#vp{--sw:.6}.map .base,.map .c{stroke-width:var(--sw)}
+
+.mapbox{position:relative}
+.zoom{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:flex;gap:2px;padding:4px;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-radius:980px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.zoom button{width:44px;height:40px;border:0;border-radius:980px;background:transparent;font-size:21px;line-height:1;cursor:pointer;color:var(--ink);display:grid;place-items:center;transition:background .15s}
+.zoom button svg{width:18px;height:18px}
+.zoom i{width:1px;margin:8px 2px;background:var(--line)}
+.zoom button:hover{background:rgba(0,0,0,.06)}.zoom button:focus-visible{outline:3px solid rgba(0,113,227,.4);outline-offset:-3px}
+.hint{font-size:13px;color:var(--mute);text-align:center;margin:6px 0 0}
+.picker{max-width:1100px;margin:22px auto 0;padding:0 max(5vw,16px)}
+.pbox{background:var(--soft);border-radius:24px;padding:clamp(20px,3vw,32px)}
+.pbox h2{font-size:clamp(26px,3.5vw,34px);letter-spacing:-.02em;margin:0 0 4px;line-height:1.1}
+.pbox>p{color:var(--mute);margin:0 0 18px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{border:1px solid var(--line);background:#fff;border-radius:980px;padding:9px 16px;min-height:44px;font-size:15px;font-weight:500;cursor:pointer;transition:all .15s}
+.tag:hover{border-color:#86868b}
+.tag[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:#fff}
+.tag:focus-visible{outline:3px solid rgba(0,113,227,.4);outline-offset:2px}
+.res{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:20px}
+.rc{background:#fff;border:0;border-radius:18px;padding:16px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:10px;transition:transform .15s,box-shadow .15s;min-height:44px}
+.rc:hover{box-shadow:0 6px 20px rgba(0,0,0,.08);transform:translateY(-1px)}
+.rc .top{display:flex;align-items:center;gap:10px}
+.rc .top b{font-size:18px;flex:1}
+.rc .pct{font-weight:600;font-size:15px;color:var(--blue);white-space:nowrap}
+.rc .bar{height:4px;border-radius:4px;background:#ececf0;overflow:hidden}.rc .bar i{display:block;height:100%;background:var(--blue);border-radius:4px}
+.rc small{color:var(--mute);font-size:13px;line-height:1.4}
+.ptools{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:12px;flex-wrap:wrap;font-size:14px;color:var(--mute)}
+.ptools button{border:0;background:none;color:var(--blue);cursor:pointer;font-size:15px;padding:10px 0;min-height:44px}
+.vrows{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);border-top:1px solid #ececf0;margin-bottom:30px;max-width:860px}
+.vrows dt,.vrows dd{margin:0;padding:13px 0;border-bottom:1px solid #ececf0;font-size:16px}
+.vrows dt{color:var(--mute);padding-right:16px}
+.vrows dd.hl{font-weight:600}
+.pane h4{font-size:19px;margin:0 0 16px}
+@media(max-width:600px){.tag{font-size:14px;padding:8px 13px;min-height:40px}.vrows{grid-template-columns:minmax(0,1fr)}.vrows dt{border-bottom:0;padding-bottom:0;font-size:13px}.zoom{bottom:10px}.zoom button{width:40px;height:36px}}
+.grad{background:linear-gradient(90deg,#0a84ff 0%,#5e5ce6 30%,#ff375f 65%,#ff9f0a 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shine 8s ease-in-out infinite alternate}
+@keyframes shine{from{background-position:0% 50%}to{background-position:100% 50%}}
+@media(prefers-reduced-motion:reduce){.grad{animation:none}}
+.rc .pct.grad{font-weight:700}
+.regions{display:flex;gap:4px;background:#e8e8ed;border-radius:14px;padding:4px;max-width:max-content;margin:22px auto 0;overflow-x:auto;scrollbar-width:none}
+.regions::-webkit-scrollbar{display:none}
+@media(max-width:999px){.regions{margin:22px max(5vw,16px) 0;max-width:none}}
+.rg{flex:none;border:0;background:transparent;border-radius:10px;padding:9px 16px;min-height:40px;font-size:15px;font-weight:500;color:var(--mute);cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
+.rg[aria-pressed=true]{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.rg:focus-visible,.mo:focus-visible,.rep:focus-visible{outline:3px solid rgba(0,113,227,.4);outline-offset:2px}
+.chip[hidden]{display:none}
+.att{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:18px;padding:16px 20px;margin:-10px 0 22px}
+.att .dot{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:18px}
+.att small{display:block;color:var(--mute);font-size:13px}.att b{font-weight:600}.att p{margin:2px 0 0;font-size:15px;color:var(--mute)}
+.budget{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:24px}
+.bcol{border-radius:18px;padding:20px 22px;background:var(--soft)}
+.bcol.lux{background:linear-gradient(160deg,#fff4e6,#ffe9f0 60%,#efeaff)}
+.bcol h4{margin:0 0 2px;font-size:17px}.bcol .sum{font-size:30px;font-weight:700;letter-spacing:-.02em;white-space:nowrap;margin-bottom:10px}
+.bcol dl{display:grid;grid-template-columns:minmax(0,1fr) auto;margin:0 0 12px;font-size:15px}
+.bcol dt,.bcol dd{margin:0;padding:7px 0;border-top:1px solid rgba(0,0,0,.07)}.bcol dd{font-weight:600;text-align:right;white-space:nowrap}
+.bcol p{margin:0;font-size:15px;color:var(--mute)}.bcol p b{color:var(--ink);font-weight:600}
+.flight{font-size:15px;color:var(--mute);margin:0 0 20px}.flight b{color:var(--ink);white-space:nowrap}
+.months{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;margin-bottom:18px}
+.mcell{border-radius:12px;padding:10px 4px;text-align:center;font-size:13px;color:var(--mute)}
+.mcell b{display:block;font-size:17px;color:var(--ink);margin-top:2px;white-space:nowrap}
+.s2{background:#e2f5e7}.s1{background:#fdf1dc}.s0{background:#f0f0f3}
+.mleg{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--mute);margin-bottom:16px}.mleg i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px}
+@media(max-width:700px){.months{grid-template-columns:repeat(6,minmax(0,1fr))}.budget{grid-template-columns:minmax(0,1fr)}}
+.mpick{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.mo{border:1px solid var(--line);background:#fff;border-radius:980px;padding:8px 14px;min-height:40px;font-size:15px;font-weight:500;cursor:pointer}
+.mo[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.rc .tmp{font-weight:600;font-size:15px;white-space:nowrap}
+.heroBtns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}.heroBtns .cta{margin-top:0}
+.cta.alt{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}.cta.alt:hover{background:var(--soft)}
+.rep{border:0;background:none;color:var(--blue);cursor:pointer;font-size:14px;padding:10px 0;min-height:44px;display:inline-flex;align-items:center;gap:6px}
+dialog.rd{border:0;border-radius:22px;padding:0;width:min(520px,calc(100vw - 32px));box-shadow:0 20px 60px rgba(0,0,0,.25)}
+dialog.rd::backdrop{background:rgba(0,0,0,.35);backdrop-filter:blur(4px)}
+.rd form{padding:26px}.rd h3{margin:0 0 4px;font-size:22px}.rd p{margin:0 0 16px;color:var(--mute);font-size:15px}
+.rd label{display:block;font-size:14px;font-weight:600;margin:12px 0 6px}
+.rd select,.rd textarea,.rd input{width:100%;font:inherit;font-size:16px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff;color:var(--ink)}
+.rd textarea{min-height:110px;resize:vertical}
+.rd .row{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}.rd .row .cta{margin:0}
+.rd .ok{text-align:center;padding:10px 0}.rd .ok b{display:block;font-size:20px;margin-bottom:6px}
+</style>
+</head>
+<body>
+<nav class="top"><div><b>Куда.ру</b><span>Прототип · 35 стран</span></div></nav>
+
+<section class="hero">
+  <h1><span class="grad">Весь мир</span> <span style="white-space:nowrap">с российским</span> паспортом</h1>
+  <p class="lead">Выберите страну: что с визой, как пройти границу, сколько стоит и что посмотреть — без рекламы туров.</p>
+  <div class="heroBtns"><button class="cta" id="openPicker" aria-expanded="false" aria-controls="picker">Подобрать страну под себя</button><button class="cta alt" id="openMonth" aria-expanded="false" aria-controls="monthbox">Куда поехать в январе</button></div>
+</section>
+<section class="picker" id="monthbox" hidden><div class="pbox">
+  <h2>Куда поехать <span class="grad" id="mTitle">в январе</span></h2>
+  <p>Страны, где в этот месяц сезон: погода комфортная, море тёплое, нет муссонов и жары.</p>
+  <div class="mpick" id="mpick"></div>
+  <div class="res" id="mres"></div>
+</div></section>
+<section class="picker" id="picker" hidden><div class="pbox">
+  <h2>Какая <span class="grad">поездка</span> вам нужна?</h2>
+  <p>Нажмите всё, что про вас — страны на карте и в списке пересортируются.</p>
+  <div class="tags" id="tags"></div>
+  <div class="res" id="res"></div>
+  <div class="ptools"><span id="pcount"></span><button id="resetTags">Сбросить выбор</button></div>
+</div></section>
+
+<div class="mapwrap" id="mapwrap">
+  <div class="mapbox"><div class="pulse" id="pulse"></div><svg class="map" id="map" role="img" aria-label="Карта мира с выделенными странами"><g id="vp"></g></svg>
+  <div class="zoom"><button id="zout" aria-label="Отдалить"><svg viewBox="0 0 18 18"><path d="M3 9h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><button id="zin" aria-label="Приблизить"><svg viewBox="0 0 18 18"><path d="M3 9h12M9 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><i></i><button id="zreset" aria-label="Показать весь мир"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V3h4M15 7V3h-4M3 11v4h4M15 11v4h-4"/></svg></button></div></div>
+  <div class="tip" id="tip"></div>
+  <p class="hint">Колесико мыши или два пальца — приблизить, потяните — сдвинуть карту</p>
+  <div class="legend"><span><i style="background:var(--free)"></i>Без визы</span><span><i style="background:var(--arr)"></i>Виза по прилёте или онлайн</span><span><i style="background:var(--visa)"></i>Виза заранее</span></div>
+</div>
+
+<div class="regions" id="regions" role="toolbar" aria-label="Части света"></div>
+<div class="chips" id="chips" role="toolbar" aria-label="Страны"></div>
+
+<section class="band"><div class="card" id="card" aria-live="polite"><div class="head"><img class="flag" src="flags/gr.svg" alt="Флаг: Греция" width="64" height="64"><div><span class="badge"><i style="background:var(--visa)"></i>Нужна виза заранее</span><h2><span class="grad">Греция</span></h2></div></div>
+  <p class="sub">Острова, Афины и античность. Греция — одна из стран Шенгена, которые продолжают выдавать визы россиянам.</p>
+  <div class="facts"><div class="fact"><small>Можно находиться</small><b>по датам визы</b></div><div class="fact"><small>Перелёт туда-обратно</small><b>45–75 тыс. ₽</b></div><div class="fact"><small>Месяц: экономно – с размахом</small><b>152–570 тыс. ₽</b></div><div class="fact"><small>Россиян за год</small><b>≈ 100 тыс.</b></div></div>
+  <div class="att"><span class="dot" style="background:#e2f5e7" aria-hidden="true">😊</span><div><small>Отношение к россиянам</small><b>Дружелюбное</b><p>Доброжелательно: исторически близкие отношения и общая православная культура.</p></div></div>
+  <div class="tabs" role="tablist"><button class="tab" role="tab" id="t-visa" data-t="visa" aria-selected="true" aria-controls="pane">Виза</button><button class="tab" role="tab" id="t-border" data-t="border" aria-selected="false" aria-controls="pane">Граница</button><button class="tab" role="tab" id="t-road" data-t="road" aria-selected="false" aria-controls="pane">Дорога</button><button class="tab" role="tab" id="t-money" data-t="money" aria-selected="false" aria-controls="pane">Деньги и цены</button><button class="tab" role="tab" id="t-when" data-t="when" aria-selected="false" aria-controls="pane">Когда ехать</button><button class="tab" role="tab" id="t-places" data-t="places" aria-selected="false" aria-controls="pane">Куда сходить</button><button class="tab" role="tab" id="t-pc" data-t="pc" aria-selected="false" aria-controls="pane">Плюсы и минусы</button><button class="tab" role="tab" id="t-prep" data-t="prep" aria-selected="false" aria-controls="pane">Подготовка</button></div>
+  <div class="pane" id="pane" role="tabpanel"><h3>Виза и разрешение на въезд</h3><dl class="vrows"><dt>Что нужно</dt><dd class="hl">Шенгенская виза типа C</dd><dt>Где оформить</dt><dd>Визовый центр Греции</dd><dt>Сроки</dt><dd>От 15 дней</dd><dt>Сколько стоит</dt><dd class="hl">Консульский сбор 90 € + сервисный сбор</dd><dt>Шансы</dt><dd>Греция среди стран Шенгена, наиболее лояльных к россиянам</dd><dt>Риски</dt><dd>Мультивизы почти не выдают. Сборы при отказе не возвращают</dd><dt>Если нужно дольше</dt><dd>Национальная виза D</dd></dl><h4>Порядок действий</h4><ol class="steps"><li><b>Проверьте паспорт</b><span>Действует ещё 3 месяца после выезда из Шенгена.</span></li><li><b>Соберите документы</b><span>Брони, финансы, страховка от 30 000 €.</span></li><li><b>Подайте в визовый центр</b><span>Консульский сбор 90 € плюс сервисный.</span></li><li><b>Заберите паспорт</b><span>Визу дают под даты поездки.</span></li></ol></div>
+  <p class="src"><span>Проверено 26 ноября 2026 · Источники:</span><a href="https://www.dp.ru/a/2026/03/25/nedostupnie-vizi-poezdki" target="_blank" rel="noopener">ДП: лояльные страны</a><a href="https://iz.ru/node/2114142" target="_blank" rel="noopener">Известия: отказы в шенгене</a><a href="https://polis812.ru/blog/shengenskaya-viza-kakie-strany-vydayut-i-gde-proshhe-poluchit/" target="_blank" rel="noopener">Polis812: шенген 2026</a></p>
+  <button class="rep" id="repBtn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 14V2.5M3 3h8l-1.5 3L11 9H3"></path></svg>Сообщить об изменении</button></div><div class="seo-all" hidden><section><h3>Как пройти границу</h3><ul class="list"><li>Распечатки броней и страховки — в ручной клади.</li><li>Наличные от 10 000 € декларируются.</li></ul></section><section><h3>Как добраться</h3><ul class="list"><li>Прямых рейсов нет — через Стамбул или Белград.</li><li>С пересадкой — 6–10 часов до Афин.</li><li>На острова — паромы и местные рейсы.</li></ul></section><section><h3>Деньги и цены</h3><p class="flight">Перелёт туда-обратно из Москвы: <b>45–75 тыс. ₽</b>. Ниже — месяц на месте на одного человека, без перелёта.</p><div class="budget"><div class="bcol eco"><h4>Экономно</h4><div class="sum">152 тыс. ₽</div><dl><dt>Жильё</dt><dd>80 тыс. ₽</dd><dt>Еда</dt><dd>45 тыс. ₽</dd><dt>Транспорт</dt><dd>12 тыс. ₽</dd><dt>Развлечения</dt><dd>15 тыс. ₽</dd></dl><p><b>На чём экономим:</b> Комнаты у местных на островах, гирос и таверны, паромы эконом-классом.</p></div><div class="bcol lux"><h4>С <span class="grad">размахом</span></h4><div class="sum">570 тыс. ₽</div><dl><dt>Жильё</dt><dd>300 тыс. ₽</dd><dt>Еда</dt><dd>150 тыс. ₽</dd><dt>Транспорт</dt><dd>50 тыс. ₽</dd><dt>Развлечения</dt><dd>70 тыс. ₽</dd></dl><p><b>Что значит шиковать:</b> Отели на Санторини с видом на кальдеру, рестораны, аренда лодки.</p></div></div><h4>Карты, наличные и обмен</h4><ul class="list"><li>Российские карты не работают.</li><li>Карта зарубежного банка и евро наличными.</li></ul></section><section><h3>Когда ехать</h3><div class="mleg"><span><i class="s2"></i>Сезон — лучшее время</span><span><i class="s1"></i>Можно, есть нюансы</span><span><i class="s0"></i>Не сезон: жара, дожди или холод</span></div><div class="months"><div class="mcell s0">янв<b>+13°</b></div><div class="mcell s0">фев<b>+14°</b></div><div class="mcell s1">мар<b>+16°</b></div><div class="mcell s1">апр<b>+20°</b></div><div class="mcell s2">май<b>+25°</b></div><div class="mcell s2">июн<b>+30°</b></div><div class="mcell s2">июл<b>+33°</b></div><div class="mcell s2">авг<b>+33°</b></div><div class="mcell s2">сен<b>+29°</b></div><div class="mcell s2">окт<b>+24°</b></div><div class="mcell s1">ноя<b>+19°</b></div><div class="mcell s0">дек<b>+15°</b></div></div><p class="flight">Средняя дневная температура воздуха. Лучшие месяцы: <b>май, июнь, июль, август, сентябрь, октябрь</b>.</p></section><section><h3>Куда сходить</h3><div class="places"><article class="place"><div class="ph"><img src="photos/greece-0.jpg" alt="Акрополь, Афины" loading="lazy"><button class="info" aria-label="Автор фото" aria-expanded="false">i</button><div class="credit" hidden="">Фото: <a href="https://commons.wikimedia.org/wiki/File:1029_Acropolis_of_Athens_in_Greece_at_night_Photo_by_Giles_Laurent.jpg" target="_blank" rel="noopener">Giles Laurent</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, кадрировано</div></div><div class="t"><b>Акрополь, Афины</b><p>Парфенон на холме над городом — приходите к открытию.</p></div></article><article class="place"><div class="ph"><img src="photos/greece-1.jpg" alt="Санторини" loading="lazy"><button class="info" aria-label="Автор фото" aria-expanded="false">i</button><div class="credit" hidden="">Фото: <a href="https://commons.wikimedia.org/wiki/File:Oia_-_Santorini_2019.jpg" target="_blank" rel="noopener">Anna.Tsolidou</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, кадрировано</div></div><div class="t"><b>Санторини</b><p>Белые домики на скалах кальдеры и закат в Ие.</p></div></article><article class="place"><div class="ph"><img src="photos/greece-2.jpg" alt="Метеоры" loading="lazy"><button class="info" aria-label="Автор фото" aria-expanded="false">i</button><div class="credit" hidden="">Фото: <a href="https://commons.wikimedia.org/wiki/File:Meteora's_monastery_2.jpg" target="_blank" rel="noopener">Stathis floros</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, кадрировано</div></div><div class="t"><b>Метеоры</b><p>Монастыри на вершинах скал.</p></div></article><article class="place"><div class="ph"><img src="photos/greece-3.jpg" alt="Крит, Кносский дворец" loading="lazy"><button class="info" aria-label="Автор фото" aria-expanded="false">i</button><div class="credit" hidden="">Фото: <a href="https://commons.wikimedia.org/wiki/File:Knossos_north_entrance,_Crete_001.JPG" target="_blank" rel="noopener">Moonik</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>, кадрировано</div></div><div class="t"><b>Крит, Кносский дворец</b><p>Дворец минойской цивилизации и пляжи Балос и Элафониси.</p></div></article><article class="place"><div class="ph"><img src="photos/greece-4.jpg" alt="Родос" loading="lazy"><button class="info" aria-label="Автор фото" aria-expanded="false">i</button><div class="credit" hidden="">Фото: <a href="https://commons.wikimedia.org/wiki/File:Marientor_Rhodos.jpg" target="_blank" rel="noopener">Olbertz</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>, кадрировано</div></div><div class="t"><b>Родос</b><p>Средневековый город рыцарей-иоаннитов.</p></div></article></div></section><section><div class="two"><div><h3>Плюсы</h3><ul class="list pro"><li>Море и античность</li><li>Острова на любой вкус</li><li>Визы выдают</li></ul></div><div><h3>Минусы</h3><ul class="list con"><li>Нет прямых рейсов</li><li>Летом дорого и людно</li><li>Карты не работают</li></ul></div></div></section><section><h3>Что приготовить перед поездкой</h3><ul class="list check"><li>Шенгенская виза.</li><li>Евро наличными для островов.</li><li>Билеты на паромы летом — заранее.</li><li>Солнцезащитный крем.</li></ul></section></div>
+<p class="warn">Правила въезда и работа карт меняются часто. Цены — ориентир на одного человека: перелёт туда-обратно из Москвы экономом, бюджеты «экономно» и «с размахом» — на месяц на одного. Число туристов и отношение к россиянам — примерная оценка по открытым данным и отзывам. Перед поездкой сверьтесь с сайтом посольства.</p></section>
+
+<dialog class="rd" id="rdlg"><form id="rform" method="dialog">
+  <h3>Сообщить об изменении</h3><p>Правила, цены и рейсы меняются. Расскажите, что устарело — проверим и обновим.</p>
+  <label for="rc">Страна</label><select id="rc"></select>
+  <label for="rt">Что изменилось</label><textarea id="rt" required maxlength="2000" placeholder="Например: с 1 декабря электронную визу оформляют за 3 дня, а не за 7"></textarea>
+  <label for="rl">Ссылка на источник <span style="font-weight:400;color:var(--mute)">(если есть)</span></label><input id="rl" type="url" maxlength="500" placeholder="https://">
+  <label for="rm">Как с вами связаться <span style="font-weight:400;color:var(--mute)">(необязательно)</span></label><input id="rm" maxlength="200" placeholder="Telegram или почта">
+  <div class="row"><button type="button" class="cta ghost" id="rcancel">Отмена</button><button type="submit" class="cta" id="rsend">Отправить</button></div>
+</form></dialog>
+<footer>Прототип. Данные по открытым источникам на 26 ноября 2026.<details class="credits" id="credits"><summary>Авторы фотографий и лицензии</summary><p>Фото — Wikimedia Commons, кадрированы под карточки сайта.</p><ol id="credlist"></ol></details></footer>
+
+<script src="data.js"></script>
+<script src="data2.js"></script>
+<script src="data3.js"></script>
+<script src="extra.js"></script>
+<script src="meta.js"></script>
+<script>
+{
+const C=window.COUNTRIES,VISA=window.VISA||{},TAGS=window.TAGS||[],SC=window.SCORES||{},META=window.META||{},REG=window.REGIONS||[];
+const MON=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+const MON_IN=['январе','феврале','марте','апреле','мае','июне','июле','августе','сентябре','октябре','ноябре','декабре'];
+const MSH=['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
+const ATT=[['Настороженное','#fdecea','😐'],['Нейтральное','#fdf1dc','🙂'],['Дружелюбное','#e2f5e7','😊']];
+const sum=a=>a.reduce((x,y)=>x+y,0);
+const money=n=>n>=1000?(n/1000).toFixed(1).replace('.0','').replace('.',',')+' млн ₽':n+' тыс. ₽';
+const range=(a,b)=>a<1000&&b<1000?`${a}–${b} тыс. ₽`:`${money(a)} – ${money(b)}`;
+const deg=t=>(t>0?'+':'')+t+'°';
+const ST={free:['Без визы','var(--free)'],arr:['Виза по прилёте или онлайн','var(--arr)'],visa:['Нужна виза заранее','var(--visa)']};
+const TABS=[['visa','Виза'],['border','Граница'],['road','Дорога'],['money','Деньги и цены'],['when','Когда ехать'],['places','Куда сходить'],['pc','Плюсы и минусы'],['prep','Подготовка']];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const flag=c=>`<img class="flag" src="flags/${c.iso}.svg" alt="" width="30" height="30">`;
+const byId=id=>C.find(x=>x.id===id);
+let PH={},cur=null,tab='visa',sel=new Set(),MAPW=1000,MAPH=500,vb=null;
+const svg=document.getElementById('map'),vp=document.getElementById('vp'),tip=document.getElementById('tip'),wrap=document.getElementById('mapwrap');
+const NS='http://www.w3.org/2000/svg';
+const el=(t,a)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);return n};
+const pins={},shapes={};
+
+/* ---------- карта и зум ----------
+   Во время жеста двигаем уже нарисованную картинку (transform — без перерисовки),
+   а настоящую перерисовку (viewBox) делаем один раз, когда жест закончился. */
+const box=document.querySelector('.mapbox');
+let cvb=null,raf=0,idle=0,LO=null,HI50=null,baseEl=null,flashT=0;
+function applyVB(){if(!raf)raf=requestAnimationFrame(frame);clearTimeout(idle);idle=setTimeout(commit,160)}
+function frame(){raf=0;if(!cvb)return;const s=cvb.w/vb.w,W=box.clientWidth,H=box.clientHeight;
+  svg.style.transform=`translate(${(cvb.x-vb.x)/vb.w*W}px,${(cvb.y-vb.y)/vb.h*H}px) scale(${s})`;placeTip();placePulse()}
+function commit(){
+  if(!vb)return;cvb={...vb};const k=MAPW/vb.w;
+  svg.setAttribute('viewBox',`${vb.x} ${vb.y} ${vb.w} ${vb.h}`);svg.style.transform='';
+  vp.style.setProperty('--sw',(0.6/k).toFixed(4));
+  for(const id in pins){const p=pins[id];p.halo.setAttribute('r',13/k);p.dot.setAttribute('r',5.5/k);p.dot.setAttribute('stroke-width',2.4/k);p.hit.setAttribute('r',16/k)}
+  if(baseEl){const d=k<2.2?LO:HI50;if(baseEl._d!==d){baseEl.setAttribute('d',d);baseEl._d=d}}
+  placeTip();placePulse();
+}
+function clampVB(){
+  vb.w=Math.min(MAPW,Math.max(MAPW/14,vb.w));vb.h=vb.w*MAPH/MAPW;
+  vb.x=Math.min(MAPW-vb.w,Math.max(0,vb.x));vb.y=Math.min(MAPH-vb.h,Math.max(0,vb.y));
+}
+function zoomAt(f,px,py){const nw=vb.w/f;const r=nw/vb.w;vb.x=px-(px-vb.x)*r;vb.y=py-(py-vb.y)*r;vb.w=nw;clampVB();applyVB()}
+function animateTo(t){const f={...vb},t0=performance.now(),D=matchMedia('(prefers-reduced-motion:reduce)').matches?0:320;
+  const step=now=>{const q=D?Math.min(1,(now-t0)/D):1,e=1-Math.pow(1-q,3);for(const k of['x','y','w','h'])vb[k]=f[k]+(t[k]-f[k])*e;applyVB();if(q<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+function toMap(cx,cy){const r=box.getBoundingClientRect();return[vb.x+(cx-r.left)/r.width*vb.w,vb.y+(cy-r.top)/r.height*vb.h]}
+let tipFor=null;
+function placeTip(){
+  if(!tipFor||!pins[tipFor.id]||!vb){tip.style.opacity=0;return}
+  const p=pins[tipFor.id],r=box.getBoundingClientRect(),w=wrap.getBoundingClientRect();
+  const sx=(p.x-vb.x)/vb.w*r.width,sy=(p.y-vb.y)/vb.h*r.height;
+  if(sx<0||sy<0||sx>r.width||sy>r.height){tip.style.opacity=0;return}
+  if(tip._for!==tipFor.id){tip.innerHTML=flag(tipFor)+esc(tipFor.name);tip._for=tipFor.id}
+  const hw=tip.offsetWidth/2+6;tip.style.left=Math.min(w.width-hw,Math.max(hw,r.left-w.left+sx))+'px';tip.style.top=(r.top-w.top+sy)+'px';tip.style.opacity=1;
+}
+const pulse=document.getElementById('pulse');
+function placePulse(){const p=cur&&pins[cur];if(!p||!vb){pulse.classList.remove('go');return}const W=box.clientWidth,H=box.clientHeight,x=(p.x-vb.x)/vb.w*W,y=(p.y-vb.y)/vb.h*H;pulse.style.translate=`${x}px ${y}px`;pulse.style.background=ST[byId(cur).st][1];pulse.classList.add('go')}
+function showTip(c){clearTimeout(flashT);tipFor=c;placeTip()}
+function flashTip(c){showTip(c);flashT=setTimeout(()=>{if(tipFor===c){tipFor=null;placeTip()}},2200)}
+function drawMap(M){
+  MAPW=M.W;MAPH=M.H;vb={x:0,y:0,w:MAPW,h:MAPH};
+  LO=M.lo||M.base;HI50=M.base;baseEl=el('path',{d:LO,class:'base'});baseEl._d=LO;vp.appendChild(baseEl);
+  for(const c of C){const h=M.hi[c.id];if(!h||!h.d)continue;const p=el('path',{d:h.d,class:'c',fill:ST[c.st][1]});p.addEventListener('click',()=>{if(!moved)pick(c.id,true)});p.addEventListener('mouseenter',()=>showTip(c));p.addEventListener('mouseleave',()=>showTip(null));shapes[c.id]=p;vp.appendChild(p)}
+  for(const c of C){
+    const h=M.hi[c.id];if(!h)continue;const [x,y]=h.c,col=ST[c.st][1];
+    const g=el('g',{class:'pin',tabindex:'0',role:'button','aria-label':c.name});
+    const halo=el('circle',{cx:x,cy:y,r:13,class:'halo',fill:col}),dot=el('circle',{cx:x,cy:y,r:5.5,class:'r',stroke:col}),hit=el('circle',{cx:x,cy:y,r:16,fill:'transparent'});
+    g.append(halo,dot,hit);
+    g.addEventListener('click',()=>{if(!moved)pick(c.id,true)});
+    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(c.id,true)}});
+    g.addEventListener('mouseenter',()=>showTip(c));g.addEventListener('mouseleave',()=>showTip(null));g.addEventListener('blur',()=>showTip(null));
+    g.addEventListener('focus',()=>showTip(c));
+    pins[c.id]={g,x,y,halo,dot,hit};vp.appendChild(g);
+  }
+  commit();mark();paintScores();
+}
+svg.addEventListener('wheel',e=>{if(!vb)return;e.preventDefault();const[px,py]=toMap(e.clientX,e.clientY);zoomAt(Math.exp(-e.deltaY*0.0016),px,py)},{passive:false});
+svg.addEventListener('dblclick',e=>{if(!vb)return;const[px,py]=toMap(e.clientX,e.clientY);zoomAt(2,px,py)});
+const ptrs=new Map();let moved=false,start=null,pinch=null;
+svg.addEventListener('pointerdown',e=>{if(!vb)return;ptrs.set(e.pointerId,[e.clientX,e.clientY]);moved=false;start={x:e.clientX,y:e.clientY,vx:vb.x,vy:vb.y};if(ptrs.size===2){const[a,b]=[...ptrs.values()];pinch={d:Math.hypot(a[0]-b[0],a[1]-b[1]),w:vb.w}}});
+svg.addEventListener('pointermove',e=>{
+  if(!ptrs.has(e.pointerId))return;ptrs.set(e.pointerId,[e.clientX,e.clientY]);
+  const r=box.getBoundingClientRect();
+  if(ptrs.size===2&&pinch){const[a,b]=[...ptrs.values()];const d=Math.hypot(a[0]-b[0],a[1]-b[1]);const[px,py]=toMap((a[0]+b[0])/2,(a[1]+b[1])/2);const target=pinch.w*pinch.d/d;zoomAt(vb.w/target,px,py);moved=true;return}
+  const dx=e.clientX-start.x,dy=e.clientY-start.y;
+  if(!moved&&Math.hypot(dx,dy)<5)return;
+  if(!moved){moved=true;svg.setPointerCapture(e.pointerId);svg.classList.add('drag')}
+  vb.x=start.vx-dx/r.width*vb.w;vb.y=start.vy-dy/r.height*vb.h;clampVB();applyVB();
+});
+const up=e=>{ptrs.delete(e.pointerId);if(ptrs.size<2)pinch=null;if(ptrs.size===1){const[p]=[...ptrs.values()];start={x:p[0],y:p[1],vx:vb.x,vy:vb.y}}svg.classList.remove('drag');setTimeout(()=>{if(!ptrs.size)moved=false},0)};
+svg.addEventListener('pointerup',up);svg.addEventListener('pointercancel',up);svg.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')up(e)});
+const center=()=>[vb.x+vb.w/2,vb.y+vb.h/2];
+const zoomBy=f=>{if(!vb)return;const[cx,cy]=center(),nw=vb.w/f,t={w:nw,h:nw*MAPH/MAPW,x:cx-nw/2,y:cy-nw*MAPH/MAPW/2};const o={...vb};Object.assign(vb,t);clampVB();const c={...vb};Object.assign(vb,o);animateTo(c)};
+document.getElementById('zin').onclick=()=>zoomBy(1.6);
+document.getElementById('zout').onclick=()=>zoomBy(1/1.6);
+document.getElementById('zreset').onclick=()=>vb&&animateTo({x:0,y:0,w:MAPW,h:MAPH});
+addEventListener('resize',()=>{applyVB()});
+
+/* ---------- подбор страны ---------- */
+const tagsEl=document.getElementById('tags'),resEl=document.getElementById('res'),pick$=document.getElementById('picker'),openBtn=document.getElementById('openPicker');
+tagsEl.innerHTML=TAGS.map(([k,n])=>`<button class="tag" data-k="${k}" aria-pressed="false">${n}</button>`).join('');
+function score(id){if(!sel.size)return null;const s=SC[id]||'';let sum=0,zero=false;TAGS.forEach(([k],i)=>{if(sel.has(k)){const v=+s[i]||0;sum+=v;if(!v)zero=true}});return{p:Math.round(sum/(2*sel.size)*100),zero}}
+function paintScores(){
+  for(const id in shapes){const sc=score(id);shapes[id].style.opacity=sc?(.18+.82*sc.p/100):(id===cur?1:.5)}
+  for(const id in pins){const sc=score(id);pins[id].g.style.opacity=sc?(sc.p>=50?1:.35):1}
+}
+function renderRes(){
+  if(!sel.size){resEl.innerHTML='';document.getElementById('pcount').textContent='Ничего не выбрано — покажем все страны';paintScores();return}
+  const list=C.map(c=>({c,s:score(c.id)})).sort((a,b)=>b.s.p-a.s.p||(a.s.zero-b.s.zero));
+  const top=list.filter(x=>x.s.p>0).slice(0,6);
+  resEl.innerHTML=top.map(({c,s})=>{const why=TAGS.filter(([k],i)=>sel.has(k)&&(SC[c.id]||'')[i]==='2').map(t=>t[1]).slice(0,3);const miss=TAGS.filter(([k],i)=>sel.has(k)&&(SC[c.id]||'')[i]==='0').map(t=>t[1]).slice(0,2);
+    return `<button class="rc" data-id="${c.id}"><span class="top">${flag(c)}<b>${esc(c.name)}</b><span class="pct grad">${s.p}%</span></span><span class="bar"><i style="width:${s.p}%"></i></span><small>${why.length?'Подходит: '+esc(why.join(', ').toLowerCase()):'Подходит частично'}${miss.length?'<br>Не очень: '+esc(miss.join(', ').toLowerCase()):''}</small></button>`}).join('');
+  document.getElementById('pcount').textContent=`Выбрано: ${sel.size}. Лучшие совпадения сверху — нажмите, чтобы открыть страну`;
+  paintScores();
+}
+tagsEl.addEventListener('click',e=>{const b=e.target.closest('.tag');if(!b)return;const k=b.dataset.k;sel.has(k)?sel.delete(k):sel.add(k);b.setAttribute('aria-pressed',sel.has(k));renderRes()});
+resEl.addEventListener('click',e=>{const b=e.target.closest('.rc');if(b)pick(b.dataset.id,true)});
+document.getElementById('resetTags').onclick=()=>{sel.clear();tagsEl.querySelectorAll('.tag').forEach(b=>b.setAttribute('aria-pressed','false'));renderRes()};
+openBtn.onclick=()=>{const open=pick$.hidden;pick$.hidden=!open;openBtn.setAttribute('aria-expanded',open);openBtn.textContent=open?'Скрыть подбор':'Подобрать страну под себя';if(open){renderRes();pick$.scrollIntoView({behavior:'smooth',block:'start'})}else{sel.clear();tagsEl.querySelectorAll('.tag').forEach(b=>b.setAttribute('aria-pressed','false'));renderRes()}};
+
+/* ---------- части света ---------- */
+let region='all';
+const regEl=document.getElementById('regions');
+regEl.innerHTML=[['all','Все страны'],...REG].map(([k,n])=>`<button class="rg" data-r="${k}" aria-pressed="${k==='all'}">${n}</button>`).join('');
+function regionBox(r){const pts=C.filter(c=>META[c.id]&&META[c.id].r===r&&pins[c.id]).map(c=>[pins[c.id].x,pins[c.id].y]);if(!pts.length)return null;
+  const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);let x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);
+  const pad=Math.max(40,(x1-x0)*.15);x0-=pad;x1+=pad;y0-=pad;y1+=pad;let w=Math.max(x1-x0,(y1-y0)*MAPW/MAPH);return{x:(x0+x1)/2-w/2,y:(y0+y1)/2-w*MAPH/MAPW/2,w,h:w*MAPH/MAPW}}
+function setRegion(r){region=r;regEl.querySelectorAll('.rg').forEach(b=>b.setAttribute('aria-pressed',b.dataset.r===r));
+  document.querySelectorAll('.chip').forEach(b=>b.hidden=r!=='all'&&(META[b.dataset.id]||{}).r!==r);
+  if(vb){const bx=r==='all'?{x:0,y:0,w:MAPW,h:MAPH}:regionBox(r);if(bx){const o={...vb};vb=bx;clampVB();const t={...vb};vb=o;animateTo(t)}}}
+regEl.addEventListener('click',e=>{const b=e.target.closest('.rg');if(b)setRegion(b.dataset.r)});
+
+/* ---------- куда поехать в месяц ---------- */
+let mon=0;const mBox=document.getElementById('monthbox'),mBtn=document.getElementById('openMonth'),mres=document.getElementById('mres');
+document.getElementById('mpick').innerHTML=MON.map((n,i)=>`<button class="mo" data-m="${i}" aria-pressed="${i===mon}">${n}</button>`).join('');
+function renderMonth(){document.getElementById('mTitle').textContent='в '+MON_IN[mon];mBtn.textContent=mBox.hidden?'Куда поехать в '+MON_IN[mon]:'Скрыть';
+  document.querySelectorAll('.mo').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.m===mon));
+  const L=C.filter(c=>META[c.id]&&META[c.id].season[mon]==='2').sort((a,b)=>META[b.id].temp[mon]-META[a.id].temp[mon]);
+  mres.innerHTML=L.map(c=>`<button class="rc" data-id="${c.id}"><span class="top">${flag(c)}<b>${esc(c.name)}</b><span class="tmp">${deg(META[c.id].temp[mon])}</span></span><small>${ST[c.st][0]} · экономно от ${money(sum(META[c.id].eco))} в месяц</small></button>`).join('')||'<p>В этот месяц сезона нет ни в одной стране из списка.</p>'}
+document.getElementById('mpick').addEventListener('click',e=>{const b=e.target.closest('.mo');if(b){mon=+b.dataset.m;renderMonth()}});
+mres.addEventListener('click',e=>{const b=e.target.closest('.rc');if(b)pick(b.dataset.id,true)});
+mBtn.onclick=()=>{const open=mBox.hidden;mBox.hidden=!open;mBtn.setAttribute('aria-expanded',open);renderMonth();if(open)mBox.scrollIntoView({behavior:'smooth',block:'nearest'})};
+mBtn.textContent='Куда поехать в '+MON_IN[mon];
+
+/* ---------- сообщить об изменении ---------- */
+const dlg=document.getElementById('rdlg'),rform=document.getElementById('rform');let dbP=null;
+document.getElementById('rc').innerHTML=C.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('');
+function openReport(){document.getElementById('rc').value=cur;dlg.showModal();document.getElementById('rt').focus()}
+document.getElementById('rcancel').onclick=()=>dlg.close();
+rform.addEventListener('submit',async e=>{e.preventDefault();const txt=document.getElementById('rt').value.trim();if(!txt)return;
+  const rec={country:document.getElementById('rc').value,text:txt,link:document.getElementById('rl').value.trim(),contact:document.getElementById('rm').value.trim(),tab,at:new Date().toISOString()};
+  const btn=document.getElementById('rsend');btn.disabled=true;btn.textContent='Отправляем…';let ok=false;
+  try{if(!dbP)dbP=(window.claude&&claude.use)?Promise.race([claude.use('db'),new Promise(r=>setTimeout(()=>r(null),8000))]):Promise.resolve(null);const db=await dbP;if(db){const id=Date.now().toString(36)+Math.random().toString(36).slice(2,8);const u=await claude.use('user');const uid=u?await u.id():'anon';await db.collection('reports/'+uid+'/items').doc(id).set(rec);ok=true}}catch(err){}
+  if(!ok){try{const r=await fetch('/api/report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(rec)});ok=r.ok}catch(err){}}
+  btn.disabled=false;btn.textContent='Отправить';
+  if(ok){rform.reset();dlg.close();toast('Спасибо! Проверим и обновим страницу.')}
+  else{try{await navigator.clipboard.writeText(`${byId(rec.country).name}: ${rec.text} ${rec.link}`);toast('Не получилось отправить — текст скопирован, пришлите его нам в Telegram.')}catch(err){toast('Не получилось отправить. Попробуйте позже.')}}
+});
+function toast(t){let n=document.getElementById('toast');if(!n){n=document.createElement('div');n.id='toast';n.setAttribute('role','status');n.style.cssText='position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#1d1d1f;color:#fff;padding:12px 20px;border-radius:980px;font-size:15px;z-index:20;max-width:calc(100vw - 32px);text-align:center;transition:opacity .3s';document.body.appendChild(n)}n.textContent=t;n.style.opacity=1;clearTimeout(n._t);n._t=setTimeout(()=>n.style.opacity=0,4000)}
+
+/* ---------- карточка страны ---------- */
+document.getElementById('chips').innerHTML=C.map(c=>`<button class="chip" data-id="${c.id}" aria-pressed="false">${flag(c)}${esc(c.name)}</button>`).join('');
+document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)pick(b.dataset.id,true)});
+const li=a=>a.map(x=>`<li>${esc(x)}</li>`).join('');
+function pane(c,t){
+  if(t==='visa'){const v=VISA[c.id];const rows=v?[['Что нужно',v.type,1],['Где оформить',v.where],['Сроки',v.time],['Сколько стоит',v.cost,1],['Шансы',v.chance],['Риски',v.risk],['Если нужно дольше',v.longer]]:[];
+    return `<h3>Виза и разрешение на въезд</h3>${rows.length?`<dl class="vrows">${rows.map(r=>`<dt>${r[0]}</dt><dd${r[2]?' class="hl"':''}>${esc(r[1])}</dd>`).join('')}</dl>`:''}<h4>Порядок действий</h4><ol class="steps">${c.visa.map(s=>`<li><b>${esc(s[0])}</b><span>${esc(s[1])}</span></li>`).join('')}</ol>`}
+  if(t==='border')return `<h3>Как пройти границу</h3><ul class="list">${li(c.border)}</ul>`;
+  if(t==='road')return `<h3>Как добраться</h3><ul class="list">${li(c.road)}</ul>`;
+  if(t==='money'){const m=META[c.id];const parts=['Жильё','Еда','Транспорт','Развлечения'];
+    const col=(cls,h,arr,tip)=>`<div class="bcol ${cls}"><h4>${h}</h4><div class="sum">${money(sum(arr))}</div><dl>${parts.map((p,i)=>`<dt>${p}</dt><dd>${money(arr[i])}</dd>`).join('')}</dl><p>${tip}</p></div>`;
+    return `<h3>Деньги и цены</h3><p class="flight">Перелёт туда-обратно из Москвы: <b>${esc(c.flight)}</b>. Ниже — месяц на месте на одного человека, без перелёта.</p>${m?`<div class="budget">${col('eco','Экономно',m.eco,'<b>На чём экономим:</b> '+esc(m.ecoTip))}${col('lux','С <span class="grad">размахом</span>',m.lux,'<b>Что значит шиковать:</b> '+esc(m.luxTip))}</div>`:''}<h4>Карты, наличные и обмен</h4><ul class="list">${li(c.money)}</ul>`}
+  if(t==='when'){const m=META[c.id];if(!m)return '';const best=[...m.season].map((v,i)=>v==='2'?MON[i].toLowerCase():null).filter(Boolean);
+    return `<h3>Когда ехать</h3><div class="mleg"><span><i class="s2"></i>Сезон — лучшее время</span><span><i class="s1"></i>Можно, есть нюансы</span><span><i class="s0"></i>Не сезон: жара, дожди или холод</span></div><div class="months">${m.temp.map((t,i)=>`<div class="mcell s${m.season[i]}">${MSH[i]}<b>${deg(t)}</b></div>`).join('')}</div><p class="flight">Средняя дневная температура воздуха. ${best.length?'Лучшие месяцы: <b>'+best.join(', ')+'</b>.':''}</p>`}
+  if(t==='places'){const ph=PH[c.id]||[];return `<h3>Куда сходить</h3><div class="places">${c.places.map((p,i)=>{const f=ph[i];return `<article class="place"><div class="ph">${f?`<img src="${esc(f.src)}" alt="${esc(p[0])}" loading="lazy"><button class="info" aria-label="Автор фото" aria-expanded="false">i</button><div class="credit" hidden>Фото: <a href="${esc(f.page)}" target="_blank" rel="noopener">${esc(f.credit)}</a>, ${f.licUrl?`<a href="${esc(f.licUrl)}" target="_blank" rel="noopener">${esc(f.lic)}</a>`:esc(f.lic)}, кадрировано</div>`:`<span class="no">Фото скоро добавим</span>`}</div><div class="t"><b>${esc(p[0])}</b><p>${esc(p[1])}</p></div></article>`}).join('')}</div>`}
+  if(t==='pc')return `<div class="two"><div><h3>Плюсы</h3><ul class="list pro">${li(c.pro)}</ul></div><div><h3>Минусы</h3><ul class="list con">${li(c.con)}</ul></div></div>`;
+  if(t==='prep')return `<h3>Что приготовить перед поездкой</h3><ul class="list check">${li(c.prep)}</ul>`;
+}
+function render(c){
+  const s=ST[c.st],m=META[c.id];
+  return `<div class="head"><img class="flag" src="flags/${c.iso}.svg" alt="Флаг: ${esc(c.name)}" width="64" height="64"><div><span class="badge"><i style="background:${s[1]}"></i>${s[0]}</span><h2><span class="grad">${esc(c.name)}</span></h2></div></div>
+  <p class="sub">${esc(c.sub)}</p>
+  <div class="facts"><div class="fact"><small>Можно находиться</small><b>${esc(c.stay)}</b></div><div class="fact"><small>Перелёт туда-обратно</small><b>${esc(c.flight)}</b></div><div class="fact"><small>Месяц: экономно – с размахом</small><b>${m?range(sum(m.eco),sum(m.lux)):esc(c.month||'')}</b></div><div class="fact"><small>Россиян за год</small><b>${esc(m?m.tour:c.tourists)}</b></div></div>
+  ${m?`<div class="att"><span class="dot" style="background:${ATT[m.att][1]}" aria-hidden="true">${ATT[m.att][2]}</span><div><small>Отношение к россиянам</small><b>${ATT[m.att][0]}</b><p>${esc(m.attT)}</p></div></div>`:''}
+  <div class="tabs" role="tablist">${TABS.map(([k,n])=>`<button class="tab" role="tab" id="t-${k}" data-t="${k}" aria-selected="${k===tab}" aria-controls="pane">${n}</button>`).join('')}</div>
+  <div class="pane" id="pane" role="tabpanel">${pane(c,tab)}</div>
+  <p class="src"><span>Проверено 26 ноября 2026 · Источники:</span>${c.src.map(s=>`<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join('')}</p>
+  <button class="rep" id="repBtn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 14V2.5M3 3h8l-1.5 3L11 9H3"/></svg>Сообщить об изменении</button>`;
+}
+const card=document.getElementById('card');
+card.addEventListener('click',e=>{const i=e.target.closest('.info');if(i){const c=i.nextElementSibling,open=c.hidden;card.querySelectorAll('.credit').forEach(x=>x.hidden=true);card.querySelectorAll('.info').forEach(x=>x.setAttribute('aria-expanded','false'));c.hidden=!open;i.setAttribute('aria-expanded',open);return}if(e.target.closest('#repBtn')){openReport();return}const b=e.target.closest('.tab');if(b)setTab(b.dataset.t)});
+function credits(){const L=[];for(const c of C)(PH[c.id]||[]).forEach(f=>{if(f)L.push(`<li>${esc(c.name)}, ${esc(f.place)} — <a href="${esc(f.page)}" target="_blank" rel="noopener">${esc(f.credit)}</a>, ${f.licUrl?`<a href="${esc(f.licUrl)}" target="_blank" rel="noopener">${esc(f.lic)}</a>`:esc(f.lic)}, кадрировано</li>`)});document.getElementById('credlist').innerHTML=L.join('')}
+card.addEventListener('keydown',e=>{const b=e.target.closest('.tab');if(!b||!['ArrowLeft','ArrowRight'].includes(e.key))return;const i=TABS.findIndex(t=>t[0]===b.dataset.t)+(e.key==='ArrowRight'?1:-1);const n=TABS[(i+TABS.length)%TABS.length][0];setTab(n);document.getElementById('t-'+n).focus()});
+function setTab(t){tab=t;document.getElementById('pane').innerHTML=pane(byId(cur),t);card.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));const a=document.getElementById('t-'+t);a&&a.scrollIntoView({block:'nearest',inline:'nearest'})}
+function mark(){for(const k in pins)pins[k].g.classList.toggle('on',k===cur);for(const k in shapes)shapes[k].classList.toggle('sel',k===cur);if(shapes[cur])vp.insertBefore(shapes[cur],pins[Object.keys(pins)[0]]?.g||null);paintScores();placePulse();if(vb)flashTip(byId(cur))}
+function pick(id,scroll){
+  const c=byId(id)||C[0];cur=c.id;card.innerHTML=render(c);
+  document.querySelectorAll('.chip').forEach(b=>{const on=b.dataset.id===c.id;b.setAttribute('aria-pressed',on);if(on&&scroll!==undefined)b.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'})});
+  mark();
+  if(PATHS){const u=ROOT+c.id+'/';if(location.pathname!==u&&(scroll!==undefined||fromPath()))history[scroll?'pushState':'replaceState'](null,'',u);document.title=c.name+' для россиян: виза, граница, цены — Куда.ру'}
+  else if(location.hash!=='#'+c.id)history.replaceState(null,'','#'+c.id);
+  if(scroll)card.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
+}
+const PATHS=!!document.querySelector('meta[name="routing"][content="path"]');
+const ROOT=PATHS?new URL(document.baseURI).pathname:'/';
+const fromPath=()=>location.pathname.slice(ROOT.length).split('/').filter(Boolean)[0]||'';
+if(PATHS)addEventListener('popstate',()=>pick(fromPath()||'turkey'));else addEventListener('hashchange',()=>pick(location.hash.slice(1)));
+pick((PATHS&&fromPath())||location.hash.slice(1)||'turkey');
+fetch('photos.json').then(r=>r.json()).then(d=>{PH=d;credits();if(tab==='places')setTab('places')}).catch(()=>{});
+fetch('map.json').then(r=>r.json()).then(drawMap).catch(()=>{svg.style.display='none'});
+}
+</script>
+</body>
+</html>
