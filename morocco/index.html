@@ -255,12 +255,12 @@ dialog.rd::backdrop{background:rgba(0,0,0,.35);backdrop-filter:blur(4px)}
 </form></dialog>
 <footer>Прототип. Данные по открытым источникам на 26 ноября 2026.<details class="credits" id="credits"><summary>Авторы фотографий и лицензии</summary><p>Фото — Wikimedia Commons, кадрированы под карточки сайта.</p><ol id="credlist"></ol></details></footer>
 
-<script src="data.js"></script>
-<script src="data2.js"></script>
-<script src="data3.js"></script>
-<script src="extra.js"></script>
-<script src="meta.js"></script>
-<script src="data4.js"></script>
+<script src="data.js?v=202611262230"></script>
+<script src="data2.js?v=202611262230"></script>
+<script src="data3.js?v=202611262230"></script>
+<script src="extra.js?v=202611262230"></script>
+<script src="meta.js?v=202611262230"></script>
+<script src="data4.js?v=202611262230"></script>
 <script>
 {
 const C=window.COUNTRIES,VISA=window.VISA||{},TAGS=window.TAGS||[],SC=window.SCORES||{},META=window.META||{},REG=window.REGIONS||[];
@@ -469,8 +469,8 @@ const ROOT=PATHS?new URL(document.baseURI).pathname:'/';
 const fromPath=()=>location.pathname.slice(ROOT.length).split('/').filter(Boolean)[0]||'';
 if(PATHS)addEventListener('popstate',()=>pick(fromPath()||'turkey'));else addEventListener('hashchange',()=>pick(location.hash.slice(1)));
 pick((PATHS&&fromPath())||location.hash.slice(1)||'turkey');
-fetch('photos.json').then(r=>r.json()).then(d=>{PH=d;credits();if(tab==='places')setTab('places')}).catch(()=>{});
-fetch('map.json').then(r=>r.json()).then(drawMap).catch(()=>{svg.style.display='none'});
+fetch('photos.json?v=202611262230').then(r=>r.json()).then(d=>{PH=d;credits();if(tab==='places')setTab('places')}).catch(()=>{});
+fetch('map.json?v=202611262230').then(r=>r.json()).then(drawMap).catch(()=>{svg.style.display='none'});
 }
 </script>
 </body>
