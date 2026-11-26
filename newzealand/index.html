@@ -402,7 +402,7 @@ const tagsEl=document.getElementById('tags'),resEl=document.getElementById('res'
 tagsEl.innerHTML=TAGS.map(([k,n])=>`<button class="tag" data-k="${k}" aria-pressed="false">${n}</button>`).join('');
 function score(id){if(!sel.size)return null;const s=SC[id]||'';let sum=0,zero=false;TAGS.forEach(([k],i)=>{if(sel.has(k)){const v=+s[i]||0;sum+=v;if(!v)zero=true}});return{p:Math.round(sum/(2*sel.size)*100),zero}}
 function paintScores(){
-  for(const id in shapes){const sc=score(id),off=stF&&byId(id).st!==stF,s=shapes[id].style;s.fill=off?'#f3f4f7':'';s.pointerEvents=off?'none':'';s.cursor=off?'default':'';s.opacity=off?1:sc?(.18+.82*sc.p/100):(id===cur?1:.5)}
+  for(const id in shapes){const sc=score(id),off=stF&&byId(id).st!==stF,s=shapes[id].style;s.fill=off?'#f3f4f7':'';s.stroke=off?'#d5dbe3':'';s.pointerEvents=off?'none':'';s.cursor=off?'default':'';s.opacity=off?1:sc?(.18+.82*sc.p/100):(id===cur?1:.5)}
   for(const id in pins){const sc=score(id),off=stF&&byId(id).st!==stF,g=pins[id].g;g.style.display=off?'none':'';g.setAttribute('tabindex',off?'-1':'0');g.style.opacity=sc?(sc.p>=50?1:.35):1}
   const pu=document.getElementById('pulse');if(pu)pu.style.visibility=stF&&cur&&byId(cur).st!==stF?'hidden':'';
 }
