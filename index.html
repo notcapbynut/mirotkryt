@@ -35,6 +35,7 @@ h1{font-size:clamp(34px,6vw,56px);line-height:1.05;letter-spacing:-.025em;font-w
 .map .base{fill:#f3f4f7;stroke:#d5dbe3}
 .map .c{cursor:pointer;stroke:#fff}
 .map .c:focus{outline:none}
+.map.far .pin:not(.tiny):not(.on){display:none}
 .map .pin{cursor:pointer;outline:none}.map .pin:focus{outline:none}.map .pin:focus-visible .halo{opacity:1;fill-opacity:.35}
 .map .pin .r{fill:#fff}
 .map .pin .halo{fill-opacity:.2;opacity:0}
@@ -303,7 +304,7 @@ const box=document.querySelector('.mapbox');
 let DET=false;const OV=.5;const ASP=()=>(box.clientWidth/box.clientHeight)||2;
 const REF=()=>Math.min(1156,innerWidth-24)/1000;
 function full(){const A=ASP();if(A>=MAPW/MAPH){const w=MAPH*A;return{x:(MAPW-w)/2,y:0,w,h:MAPH}}const h=MAPW/A;return{x:0,y:(MAPH-h)/2,w:MAPW,h}}
-let cvb=null,raf=0,idle=0,LO=null,HI50=null,baseEl=null,flashT=0;
+let cvb=null,raf=0,idle=0,LO=null,HI50=null,HID=null,baseEl=null,flashT=0;
 function applyVB(){if(!raf)raf=requestAnimationFrame(frame);clearTimeout(idle);idle=setTimeout(commit,160)}
 function frame(){raf=0;if(!cvb)return;const s=cvb.w/vb.w,W=box.clientWidth,H=box.clientHeight;
   svg.style.transform=`translate(${(cvb.x-vb.x)/vb.w*W+W/2*(1-s)}px,${(cvb.y-vb.y)/vb.h*H+H/2*(1-s)}px) scale(${s})`;placeTip();placePulse()}
@@ -312,8 +313,10 @@ function commit(){
   svg.setAttribute('viewBox',`${vb.x-vb.w*OV} ${vb.y-vb.h*OV} ${vb.w*(1+2*OV)} ${vb.h*(1+2*OV)}`);svg.style.transform='';
   vp.style.setProperty('--sw',(0.6/k).toFixed(4));
   for(const id in pins){const p=pins[id];p.halo.setAttribute('r',13/k);p.dot.setAttribute('r',5.5/k);p.dot.setAttribute('stroke-width',2.4/k);p.hit.setAttribute('r',16/k)}
-  const det=k>=2.2;if(baseEl){const d=det?HI50:LO;if(baseEl._d!==d){baseEl.setAttribute('d',d);baseEl._d=d}}
-  if(det!==DET){DET=det;for(const id in shapes){const p=shapes[id];p.setAttribute('d',det?p._hi:p._lo)}}
+  svg.classList.toggle('far',k<1.8);
+  let det=k>=2.2;if(det&&!HID){loadHi();det=false}
+  if(baseEl){const d=det?HI50:LO;if(baseEl._d!==d){baseEl.setAttribute('d',d);baseEl._d=d}}
+  if(det!==DET){DET=det;for(const id in shapes){const p=shapes[id];p.setAttribute('d',det&&p._hi?p._hi:p._lo)}}
   placeTip();placePulse();
 }
 function clampVB(){
@@ -339,23 +342,30 @@ function placePulse(){const p=cur&&pins[cur];if(!p||!vb){pulse.classList.remove(
 function showTip(c){clearTimeout(flashT);tipFor=c;placeTip()}
 function flashTip(c){showTip(c);flashT=setTimeout(()=>{if(tipFor===c){tipFor=null;placeTip()}},2200)}
 function drawMap(M){
-  MAPD=M;drawCmap();
+  MAPD=M;
   MAPW=M.W;MAPH=M.H;vb=full();
-  LO=M.lo||M.base;HI50=M.base;baseEl=el('path',{d:LO,class:'base'});baseEl._d=LO;vp.appendChild(baseEl);
-  for(const c of C){const h=M.hi[c.id];if(!h||!h.d)continue;const p=el('path',{d:h.l||h.d,class:'c',fill:ST[c.st][1]});p._hi=h.d;p._lo=h.l||h.d;p.addEventListener('click',()=>{if(!moved)pick(c.id,true)});p.addEventListener('mouseenter',()=>showTip(c));p.addEventListener('mouseleave',()=>showTip(null));shapes[c.id]=p;vp.appendChild(p)}
+  LO=M.lo;baseEl=el('path',{d:LO,class:'base'});baseEl._d=LO;vp.appendChild(baseEl);
+  for(const c of C){const h=M.hi[c.id];if(!h||!h.l)continue;const p=el('path',{d:h.l,class:'c',fill:ST[c.st][1],'data-id':c.id});p._lo=h.l;shapes[c.id]=p;vp.appendChild(p)}
   for(const c of C){
     const h=M.hi[c.id];if(!h)continue;const [x,y]=h.c,col=ST[c.st][1];
-    const g=el('g',{class:'pin',tabindex:'0',role:'button','aria-label':c.name});
+    const g=el('g',{class:'pin'+(h.t?' tiny':''),tabindex:'0',role:'button','aria-label':c.name,'data-id':c.id});
     const halo=el('circle',{cx:x,cy:y,r:13,class:'halo',fill:col}),dot=el('circle',{cx:x,cy:y,r:5.5,class:'r',stroke:col}),hit=el('circle',{cx:x,cy:y,r:16,fill:'transparent'});
-    g.append(halo,dot,hit);
-    g.addEventListener('click',()=>{if(!moved)pick(c.id,true)});
-    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(c.id,true)}});
-    g.addEventListener('mouseenter',()=>showTip(c));g.addEventListener('mouseleave',()=>showTip(null));g.addEventListener('blur',()=>showTip(null));
-    g.addEventListener('focus',()=>showTip(c));
-    pins[c.id]={g,x,y,halo,dot,hit};vp.appendChild(g);
+    g.append(halo,dot,hit);pins[c.id]={g,x,y,halo,dot,hit};vp.appendChild(g);
   }
-  commit();mark();paintScores();
+  commit();mark();paintScores();drawCmap();
+  const later=window.requestIdleCallback||(f=>setTimeout(f,1200));later(loadHi,{timeout:2500});
 }
+/* подробные контуры — отдельным файлом, после того как страница открылась */
+let HIP=null;
+function loadHi(){if(HIP)return HIP;HIP=fetch('map_hi.json?v=202611270130').then(r=>r.json()).then(H=>{HID=H;HI50=H.base;for(const id in shapes){const d=H.hi[id];if(d)shapes[id]._hi=d}DET=null;commit();drawCmap()}).catch(()=>{HIP=null});return HIP}
+/* одни обработчики на всю карту вместо сотен */
+const idOf=e=>{const t=e.target.closest&&e.target.closest('[data-id]');return t&&vp.contains(t)?t.dataset.id:null};
+vp.addEventListener('click',e=>{const id=idOf(e);if(id&&!moved)pick(id,true)});
+vp.addEventListener('keydown',e=>{const id=idOf(e);if(id&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pick(id,true)}});
+vp.addEventListener('mouseover',e=>{const id=idOf(e);if(id)showTip(byId(id))});
+vp.addEventListener('mouseout',e=>{const id=idOf(e);if(!id)return;const to=e.relatedTarget&&e.relatedTarget.closest&&e.relatedTarget.closest('[data-id]');if(!to||to.dataset.id!==id)showTip(null)});
+vp.addEventListener('focusin',e=>{const id=idOf(e);if(id)showTip(byId(id))});
+vp.addEventListener('focusout',()=>showTip(null));
 svg.addEventListener('wheel',e=>{if(!vb)return;e.preventDefault();const[px,py]=toMap(e.clientX,e.clientY);zoomAt(Math.exp(-e.deltaY*0.0016),px,py)},{passive:false});
 svg.addEventListener('dblclick',e=>{if(!vb)return;const[px,py]=toMap(e.clientX,e.clientY);zoomAt(2,px,py)});
 const ptrs=new Map();let moved=false,start=null,pinch=null;
@@ -490,7 +500,7 @@ function drawCmap(){
   const f=document.getElementById('cmap');if(!f||!cur)return;const m=CM&&CM[cur];
   if(!m||!MAPD){f.hidden=true;return}f.hidden=false;
   const c=byId(cur),[bx,by,bw,bh]=m.box,K=Math.min(1.9,Math.max(1,560/(f.clientWidth||560))),fs=bw/64*K,r=bw/190*K,col=ST[c.st][1];
-  const others=Object.entries(MAPD.hi).filter(([k])=>k!==cur).map(([,h])=>h.d).join('');
+  const others=Object.entries(MAPD.hi).filter(([k])=>k!==cur).map(([k,h])=>HID&&HID.hi[k]||h.l).join('');
   const P=m.p.map((p,i)=>({x:p[0],y:p[1],t:c.places[i][0].split(',')[0],full:c.places[i][0],city:p[2],i})).concat(m.x.map((e,j)=>({x:e[0],y:e[1],t:e[2],full:e[2],city:e[3],i:-1-j})));
   for(let k=0;k<30;k++)for(const a of P)for(const b of P){if(a===b)continue;const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||.001,min=r*2.6;if(d<min){const s=(min-d)/2/d;a.x-=dx*s;a.y-=dy*s;b.x+=dx*s;b.y+=dy*s}}
   const boxes=P.map(p=>({x0:p.x-r*1.5,y0:p.y-r*1.5,x1:p.x+r*1.5,y1:p.y+r*1.5})),lab=[];
@@ -498,7 +508,7 @@ function drawCmap(){
     const opts=[[p.x+g,p.y-h/2,'start'],[p.x-g,p.y-h/2,'end'],[p.x-w/2,p.y+g*.8,'middle'],[p.x-w/2,p.y-g*.8-h,'middle']];
     for(const [x,y,a] of opts){const x0=a==='end'?x-w:x,b={x0,y0:y,x1:x0+w,y1:y+h};if(b.x0<bx||b.x1>bx+bw||b.y0<by||b.y1>by+bh)continue;if(boxes.some(o=>!(b.x1<o.x0||b.x0>o.x1||b.y1<o.y0||b.y0>o.y1)))continue;
       boxes.push(b);lab.push(`<text data-k="${p.i}" x="${a==='end'?b.x1:a==='middle'?(b.x0+b.x1)/2:b.x0}" y="${b.y0+h*.76}" text-anchor="${a}" font-size="${fs}">${esc(p.t)}</text>`);break}}
-  f.innerHTML=`<svg viewBox="${bx} ${by} ${bw} ${bh}" preserveAspectRatio="xMidYMid meet" role="img"><rect x="${bx}" y="${by}" width="${bw}" height="${bh}" class="sea"/><path d="${HI50||MAPD.base}${others}" class="land"/><path d="${m.d}" class="ctry" style="--c:${col}"/>
+  f.innerHTML=`<svg viewBox="${bx} ${by} ${bw} ${bh}" preserveAspectRatio="xMidYMid meet" role="img"><rect x="${bx}" y="${by}" width="${bw}" height="${bh}" class="sea"/><path d="${HI50||MAPD.lo}${others}" class="land"/><path d="${m.d}" class="ctry" style="--c:${col}"/>
   <g class="lbl">${lab.join('')}</g>${P.map(p=>`<g class="pp" data-k="${p.i}" tabindex="0" role="button" aria-label="${esc(p.full)} — ${esc(p.city)}"><circle cx="${p.x}" cy="${p.y}" r="${r}" style="fill:${p.i<0?'var(--ink)':col}"/><circle class="hit" cx="${p.x}" cy="${p.y}" r="${r*3}"/></g>`).join('')}</svg><div class="ctip" id="ctip"></div>`;
   f._P=P;
 }
@@ -532,7 +542,7 @@ if(PATHS)addEventListener('popstate',()=>pick(fromPath()||'turkey'));else addEve
 pick((PATHS&&fromPath())||location.hash.slice(1)||'turkey');
 fetch('photos.json?v=202611270010').then(r=>r.json()).then(d=>{PH=d;credits();if(tab==='places')setTab('places')}).catch(()=>{});
 fetch('cmap.json?v=202611270100').then(r=>r.json()).then(d=>{CM=d;drawCmap()}).catch(()=>{});
-fetch('map.json?v=202611270100').then(r=>r.json()).then(drawMap).catch(()=>{svg.style.display='none'});
+fetch('map.json?v=202611270130').then(r=>r.json()).then(drawMap).catch(()=>{svg.style.display='none'});
 }
 </script>
 </body>
