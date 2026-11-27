@@ -280,12 +280,12 @@ dialog.rd::backdrop{background:rgba(0,0,0,.35);backdrop-filter:blur(4px)}
 </form></dialog>
 <footer>Прототип. Данные по открытым источникам на 26 ноября 2026.<details class="credits" id="credits"><summary>Авторы фотографий и лицензии</summary><p>Фото — Wikimedia Commons, кадрированы под карточки сайта.</p><ol id="credlist"></ol></details></footer>
 
-<script src="data.js?v=202611271505"></script>
-<script src="data2.js?v=202611271505"></script>
-<script src="data3.js?v=202611271505"></script>
-<script src="extra.js?v=202611271505"></script>
-<script src="meta.js?v=202611271505"></script>
-<script src="data4.js?v=202611271505"></script>
+<script src="data.js?v=202611271515"></script>
+<script src="data2.js?v=202611271515"></script>
+<script src="data3.js?v=202611271515"></script>
+<script src="extra.js?v=202611271515"></script>
+<script src="meta.js?v=202611271515"></script>
+<script src="data4.js?v=202611271515"></script>
 <script>
 {
 const C=window.COUNTRIES,VISA=window.VISA||{},TAGS=window.TAGS||[],SC=window.SCORES||{},META=window.META||{},REG=window.REGIONS||[];
@@ -368,7 +368,7 @@ function drawMap(M){
 }
 /* подробные контуры — отдельным файлом, после того как страница открылась */
 let HIP=null;
-function loadHi(){if(HIP)return HIP;HIP=fetch('map_hi.json?v=202611271505').then(r=>r.json()).then(H=>{HID=H;HI50=H.base;for(const id in shapes){const d=H.hi[id];if(d)shapes[id]._hi=d}DET=null;commit();drawCmap()}).catch(()=>{HIP=null});return HIP}
+function loadHi(){if(HIP)return HIP;HIP=fetch('map_hi.json?v=202611271515').then(r=>r.json()).then(H=>{HID=H;HI50=H.base;for(const id in shapes){const d=H.hi[id];if(d)shapes[id]._hi=d}DET=null;commit();drawCmap()}).catch(()=>{HIP=null});return HIP}
 /* одни обработчики на всю карту вместо сотен */
 const idOf=e=>{const t=e.target.closest&&e.target.closest('[data-id]');return t&&vp.contains(t)?t.dataset.id:null};
 vp.addEventListener('click',e=>{const id=idOf(e);if(id&&!moved)pick(id,true)});
@@ -509,7 +509,7 @@ function setTab(t){tab=t;document.getElementById('pane').innerHTML=pane(byId(cur
 /* ---------- мини-карта страны ---------- */
 function drawCmap(){
   const f=document.getElementById('cmap');if(!f||!cur)return;const id=cur,m=CM[id];
-  if(!m){f.classList.add('wait');if(m!==null){CM[id]=null;fetch('cmap/'+id+'.json?v=202611271505').then(r=>r.json()).then(d=>{CM[id]=d;if(cur===id)drawCmap()}).catch(()=>{delete CM[id]})}return}f.classList.remove('wait');
+  if(!m){f.classList.add('wait');if(m!==null){CM[id]=null;fetch('cmap/'+id+'.json?v=202611271515').then(r=>r.json()).then(d=>{CM[id]=d;if(cur===id)drawCmap()}).catch(()=>{delete CM[id]})}return}f.classList.remove('wait');
   const c=byId(cur),[bx,by,bw,bh]=m.box,K=Math.min(1.9,Math.max(1,560/(f.clientWidth||560))),fs=bw/64*K,r=bw/190*K,col=ST[c.st][1];
   const P=m.p.map((p,i)=>({x:p[0],y:p[1],t:c.places[i][0].split(',')[0],full:c.places[i][0],city:p[2],i})).concat(m.x.map((e,j)=>({x:e[0],y:e[1],t:e[2],full:e[2],city:e[3],i:-1-j})));
   for(let k=0;k<30;k++)for(const a of P)for(const b of P){if(a===b)continue;const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||.001,min=r*2.6;if(d<min){const s=(min-d)/2/d;a.x-=dx*s;a.y-=dy*s;b.x+=dx*s;b.y+=dy*s}}
@@ -553,8 +553,8 @@ const ROOT=PATHS?new URL(document.baseURI).pathname:'/';
 const fromPath=()=>location.pathname.slice(ROOT.length).split('/').filter(Boolean)[0]||'';
 if(PATHS)addEventListener('popstate',()=>pick(fromPath()||'turkey'));else addEventListener('hashchange',()=>pick(location.hash.slice(1)));
 pick((PATHS&&fromPath())||location.hash.slice(1)||'turkey');
-fetch('photos.json?v=202611271505').then(r=>r.json()).then(d=>{PH=d;credits();if(tab==='places')setTab('places')}).catch(()=>{});
-fetch('map.json?v=202611271505').then(r=>r.json()).then(drawMap).catch(()=>{svg.style.display='none'});
+fetch('photos.json?v=202611271515').then(r=>r.json()).then(d=>{PH=d;credits();if(tab==='places')setTab('places')}).catch(()=>{});
+fetch('map.json?v=202611271515').then(r=>r.json()).then(drawMap).catch(()=>{svg.style.display='none'});
 }
 </script>
 </body>
