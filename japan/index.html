@@ -65,8 +65,10 @@ h1{font-size:clamp(34px,6vw,56px);line-height:1.05;letter-spacing:-.025em;font-w
 .cmap .pp:hover circle,.cmap .pp:focus-visible circle,.cmap .pp.on circle{transform:scale(1.5)}.cmap .pp:focus{outline:none}
 .cmap .lbl text{fill:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500}
 .cmap .lbl text:hover,.cmap .lbl text.on{fill:var(--blue)}
-.ctip{position:absolute;z-index:2;transform:translate(-50%,calc(-100% - 10px));background:var(--ink);color:#fff;font-size:13px;line-height:1.3;padding:6px 10px;border-radius:10px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s}
-.ctip.on{opacity:1}.ctip small{display:block;color:#c7c7cc;font-size:12px}
+.ctip{position:absolute;z-index:2;left:0;top:0;width:200px;background:var(--ink);color:#fff;font-size:13px;line-height:1.3;padding:6px;border-radius:12px;pointer-events:none;opacity:0;transition:opacity .15s;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.ctip.on{opacity:1}.ctip.np{width:auto;max-width:220px;padding:6px 10px;white-space:nowrap}
+.ctip img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;margin-bottom:6px;background:#3a3a3c}
+.ctip b{display:block;font-weight:600;padding:0 4px}.ctip.np b{padding:0}.ctip small{display:block;color:#c7c7cc;font-size:12px;padding:0 4px 2px}.ctip.np small{padding:0}
 .place.flash{box-shadow:0 0 0 3px rgba(0,113,227,.5);border-radius:18px;transition:box-shadow .3s}
 .chips{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;padding:20px max(5vw,16px) 10px;max-width:1180px;margin:0 auto;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
@@ -262,7 +264,7 @@ dialog.rd::backdrop{background:rgba(0,0,0,.35);backdrop-filter:blur(4px)}
   <p class="sub">Нужна виза, но получить её реально: с февраля 2026 года документы принимают визовые центры в Москве и Петербурге.</p>
   <div class="facts"><div class="fact"><small>Можно находиться</small><b>по визе, до 15–90 дней</b></div><div class="fact"><small>Перелёт туда-обратно</small><b>90–140 тыс. ₽</b></div><div class="fact"><small>Месяц: экономно – с размахом</small><b>180–670 тыс. ₽</b></div><div class="fact"><small>Россиян за год</small><b>≈ 100 тыс.</b></div></div>
   <div class="att"><span class="dot" style="background:#fdf1dc" aria-hidden="true">🙂</span><div><small>Отношение к россиянам</small><b>Нейтральное</b><p>Вежливо и корректно к любым туристам; политика в быту не обсуждается.</p></div></div>
-  <div class="tabs" role="tablist"><button class="tab" role="tab" id="t-visa" data-t="visa" aria-selected="true" aria-controls="pane">Виза</button><button class="tab" role="tab" id="t-border" data-t="border" aria-selected="false" aria-controls="pane">Граница</button><button class="tab" role="tab" id="t-road" data-t="road" aria-selected="false" aria-controls="pane">Дорога</button><button class="tab" role="tab" id="t-money" data-t="money" aria-selected="false" aria-controls="pane">Деньги и цены</button><button class="tab" role="tab" id="t-when" data-t="when" aria-selected="false" aria-controls="pane">Когда ехать</button><button class="tab" role="tab" id="t-places" data-t="places" aria-selected="false" aria-controls="pane">Куда сходить</button><button class="tab" role="tab" id="t-pc" data-t="pc" aria-selected="false" aria-controls="pane">Плюсы и минусы</button><button class="tab" role="tab" id="t-prep" data-t="prep" aria-selected="false" aria-controls="pane">Подготовка</button></div>
+  <div class="tabs" role="tablist"><button class="tab" role="tab" id="t-visa" data-t="visa" aria-selected="true" aria-controls="pane">Виза</button><button class="tab" role="tab" id="t-border" data-t="border" aria-selected="false" aria-controls="pane">Граница</button><button class="tab" role="tab" id="t-road" data-t="road" aria-selected="false" aria-controls="pane">Дорога</button><button class="tab" role="tab" id="t-money" data-t="money" aria-selected="false" aria-controls="pane">Деньги и цены</button><button class="tab" role="tab" id="t-when" data-t="when" aria-selected="false" aria-controls="pane">Когда ехать</button><button class="tab" role="tab" id="t-places" data-t="places" aria-selected="false" aria-controls="pane">Можно посетить</button><button class="tab" role="tab" id="t-pc" data-t="pc" aria-selected="false" aria-controls="pane">Плюсы и минусы</button><button class="tab" role="tab" id="t-prep" data-t="prep" aria-selected="false" aria-controls="pane">Подготовка</button></div>
   <div class="pane" id="pane" role="tabpanel"><h3>Виза и разрешение на въезд</h3><dl class="vrows"><dt>Что нужно</dt><dd class="hl">Туристическая виза (вклеивается в паспорт)</dd><dt>Где оформить</dt><dd>Визовые центры JVAC в Москве и Петербурге; консульства на Дальнем Востоке</dd><dt>Сроки</dt><dd>Минимум 5 рабочих дней, подавать — за несколько недель</dd><dt>Сколько стоит</dt><dd class="hl">Для россиян консульского сбора нет; визовый центр берёт сервисный сбор</dd><dt>Шансы</dt><dd>Хорошие при полном пакете документов</dd><dt>Риски</dt><dd>Электронная виза для подающих из России не работает — без визы в паспорте на рейс не посадят</dd><dt>Если нужно дольше</dt><dd>Только новая виза</dd></dl><h4>Порядок действий</h4><ol class="steps"><li><b>Соберите документы</b><span>Анкета, фото, загранпаспорт, программа поездки, брони билетов и отелей.</span></li><li><b>Подайте в визовый центр</b><span>JVAC в Москве или Петербурге; на Дальнем Востоке — в консульствах.</span></li><li><b>Дождитесь решения</b><span>Минимум 5 рабочих дней, лучше подавать за несколько недель.</span></li><li><b>Заполните Visit Japan Web</b><span>Не обязательно, но ускоряет границу и таможню.</span></li></ol></div>
   <p class="src"><span>Проверено 26 ноября 2026 · Источники:</span><a href="https://t-j.ru/news/japan-entry-rules/" target="_blank" rel="noopener">Т—Ж: въезд в Японию</a><a href="https://www.st-petersburg.ru.emb-japan.go.jp/files/100971477.pdf" target="_blank" rel="noopener">Консульство Японии: визовый центр</a><a href="https://travelto.ru/blog/blogpravila-vezda-v-yaponiyu/" target="_blank" rel="noopener">Travelto: правила въезда</a></p>
   <button class="rep" id="repBtn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 14V2.5M3 3h8l-1.5 3L11 9H3"></path></svg>Сообщить об изменении</button></div>
@@ -278,12 +280,12 @@ dialog.rd::backdrop{background:rgba(0,0,0,.35);backdrop-filter:blur(4px)}
 </form></dialog>
 <footer>Прототип. Данные по открытым источникам на 26 ноября 2026.<details class="credits" id="credits"><summary>Авторы фотографий и лицензии</summary><p>Фото — Wikimedia Commons, кадрированы под карточки сайта.</p><ol id="credlist"></ol></details></footer>
 
-<script src="data.js?v=202611270010"></script>
-<script src="data2.js?v=202611270010"></script>
-<script src="data3.js?v=202611270010"></script>
-<script src="extra.js?v=202611270010"></script>
-<script src="meta.js?v=202611270010"></script>
-<script src="data4.js?v=202611270010"></script>
+<script src="data.js?v=202611271420"></script>
+<script src="data2.js?v=202611271420"></script>
+<script src="data3.js?v=202611271420"></script>
+<script src="extra.js?v=202611271420"></script>
+<script src="meta.js?v=202611271420"></script>
+<script src="data4.js?v=202611271420"></script>
 <script>
 {
 const C=window.COUNTRIES,VISA=window.VISA||{},TAGS=window.TAGS||[],SC=window.SCORES||{},META=window.META||{},REG=window.REGIONS||[];
@@ -296,7 +298,7 @@ const money=n=>n>=1000?(n/1000).toFixed(1).replace('.0','').replace('.',',')+' �
 const range=(a,b)=>a<1000&&b<1000?`${a}–${b} тыс. ₽`:`${money(a)} – ${money(b)}`;
 const deg=t=>(t>0?'+':'')+t+'°';
 const ST={free:['Без визы','var(--free)'],arr:['Виза по прилёте или онлайн','var(--arr)'],visa:['Нужна виза заранее','var(--visa)']};
-const TABS=[['visa','Виза'],['border','Граница'],['road','Дорога'],['money','Деньги и цены'],['when','Когда ехать'],['places','Куда сходить'],['pc','Плюсы и минусы'],['prep','Подготовка']];
+const TABS=[['visa','Виза'],['border','Граница'],['road','Дорога'],['money','Деньги и цены'],['when','Когда ехать'],['places','Можно посетить'],['pc','Плюсы и минусы'],['prep','Подготовка']];
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const flag=c=>`<img class="flag" src="flags/${c.iso}.svg" alt="" width="30" height="30">`;
 const byId=id=>C.find(x=>x.id===id);
@@ -366,7 +368,7 @@ function drawMap(M){
 }
 /* подробные контуры — отдельным файлом, после того как страница открылась */
 let HIP=null;
-function loadHi(){if(HIP)return HIP;HIP=fetch('map_hi.json?v=202611270130').then(r=>r.json()).then(H=>{HID=H;HI50=H.base;for(const id in shapes){const d=H.hi[id];if(d)shapes[id]._hi=d}DET=null;commit();drawCmap()}).catch(()=>{HIP=null});return HIP}
+function loadHi(){if(HIP)return HIP;HIP=fetch('map_hi.json?v=202611271420').then(r=>r.json()).then(H=>{HID=H;HI50=H.base;for(const id in shapes){const d=H.hi[id];if(d)shapes[id]._hi=d}DET=null;commit();drawCmap()}).catch(()=>{HIP=null});return HIP}
 /* одни обработчики на всю карту вместо сотен */
 const idOf=e=>{const t=e.target.closest&&e.target.closest('[data-id]');return t&&vp.contains(t)?t.dataset.id:null};
 vp.addEventListener('click',e=>{const id=idOf(e);if(id&&!moved)pick(id,true)});
@@ -483,7 +485,7 @@ function pane(c,t){
     return `<h3>Деньги и цены</h3><p class="flight">Перелёт туда-обратно из Москвы: <b>${esc(c.flight)}</b>. Ниже — месяц на месте на одного человека, без перелёта.</p>${m?`<div class="budget">${col('eco','Экономно',m.eco,'<b>На чём экономим:</b> '+esc(m.ecoTip))}${col('lux','С <span class="grad">размахом</span>',m.lux,'<b>Что значит шиковать:</b> '+esc(m.luxTip))}</div>`:''}<h4>Карты, наличные и обмен</h4><ul class="list">${li(c.money)}</ul>`}
   if(t==='when'){const m=META[c.id];if(!m)return '';const best=[...m.season].map((v,i)=>v==='2'?MON[i].toLowerCase():null).filter(Boolean);
     return `<h3>Когда ехать</h3><div class="mleg"><span><i class="s2"></i>Сезон — лучшее время</span><span><i class="s1"></i>Можно, есть нюансы</span><span><i class="s0"></i>Не сезон: жара, дожди или холод</span></div><div class="months">${m.temp.map((t,i)=>`<div class="mcell s${m.season[i]}">${MSH[i]}<b>${deg(t)}</b></div>`).join('')}</div><p class="flight">Средняя дневная температура воздуха. ${best.length?'Лучшие месяцы: <b>'+best.join(', ')+'</b>.':''}</p>`}
-  if(t==='places'){const ph=PH[c.id]||[];return `<h3>Куда сходить</h3><div class="places">${c.places.map((p,i)=>{const f=ph[i];return `<article class="place"><div class="ph">${f?`<img src="${esc(f.src)}" alt="${esc(p[0])}" loading="lazy"><button class="info" aria-label="Автор фото" aria-expanded="false">i</button><div class="credit" hidden>Фото: <a href="${esc(f.page)}" target="_blank" rel="noopener">${esc(f.credit)}</a>, ${f.licUrl?`<a href="${esc(f.licUrl)}" target="_blank" rel="noopener">${esc(f.lic)}</a>`:esc(f.lic)}, кадрировано</div>`:`<span class="no">Фото скоро добавим</span>`}</div><div class="t"><b>${esc(p[0])}</b><p>${esc(p[1])}</p></div></article>`}).join('')}</div>`}
+  if(t==='places'){const ph=PH[c.id]||[];return `<h3>Можно посетить</h3><div class="places">${c.places.map((p,i)=>{const f=ph[i];return `<article class="place"><div class="ph">${f?`<img src="${esc(f.src)}" alt="${esc(p[0])}" loading="lazy"><button class="info" aria-label="Автор фото" aria-expanded="false">i</button><div class="credit" hidden>Фото: <a href="${esc(f.page)}" target="_blank" rel="noopener">${esc(f.credit)}</a>, ${f.licUrl?`<a href="${esc(f.licUrl)}" target="_blank" rel="noopener">${esc(f.lic)}</a>`:esc(f.lic)}, кадрировано</div>`:`<span class="no">Фото скоро добавим</span>`}</div><div class="t"><b>${esc(p[0])}</b><p>${esc(p[1])}</p></div></article>`}).join('')}</div>`}
   if(t==='pc')return `<div class="two"><div><h3>Плюсы</h3><ul class="list pro">${li(c.pro)}</ul></div><div><h3>Минусы</h3><ul class="list con">${li(c.con)}</ul></div></div>`;
   if(t==='prep')return `<h3>Что приготовить перед поездкой</h3><ul class="list check">${li(c.prep)}</ul>`;
 }
@@ -507,7 +509,7 @@ function setTab(t){tab=t;document.getElementById('pane').innerHTML=pane(byId(cur
 /* ---------- мини-карта страны ---------- */
 function drawCmap(){
   const f=document.getElementById('cmap');if(!f||!cur)return;const id=cur,m=CM[id];
-  if(!m){f.classList.add('wait');if(m!==null){CM[id]=null;fetch('cmap/'+id+'.json?v=202611270140').then(r=>r.json()).then(d=>{CM[id]=d;if(cur===id)drawCmap()}).catch(()=>{delete CM[id]})}return}f.classList.remove('wait');
+  if(!m){f.classList.add('wait');if(m!==null){CM[id]=null;fetch('cmap/'+id+'.json?v=202611271420').then(r=>r.json()).then(d=>{CM[id]=d;if(cur===id)drawCmap()}).catch(()=>{delete CM[id]})}return}f.classList.remove('wait');
   const c=byId(cur),[bx,by,bw,bh]=m.box,K=Math.min(1.9,Math.max(1,560/(f.clientWidth||560))),fs=bw/64*K,r=bw/190*K,col=ST[c.st][1];
   const P=m.p.map((p,i)=>({x:p[0],y:p[1],t:c.places[i][0].split(',')[0],full:c.places[i][0],city:p[2],i})).concat(m.x.map((e,j)=>({x:e[0],y:e[1],t:e[2],full:e[2],city:e[3],i:-1-j})));
   for(let k=0;k<30;k++)for(const a of P)for(const b of P){if(a===b)continue;const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||.001,min=r*2.6;if(d<min){const s=(min-d)/2/d;a.x-=dx*s;a.y-=dy*s;b.x+=dx*s;b.y+=dy*s}}
@@ -521,18 +523,21 @@ function drawCmap(){
   f._P=P;
 }
 let ctipK=null;
-function cTip(k){const f=document.getElementById('cmap'),t=document.getElementById('ctip');if(!f||!t)return;f.querySelectorAll('.on').forEach(x=>x.classList.remove('on'));ctipK=k;
+function cTip(k,ev){const f=document.getElementById('cmap'),t=document.getElementById('ctip');if(!f||!t)return;f.querySelectorAll('.on').forEach(x=>x.classList.remove('on'));ctipK=k;
   if(k===null){t.classList.remove('on');return}const p=f._P.find(x=>x.i===k),g=f.querySelector(`.pp[data-k="${k}"] circle:not(.hit)`);if(!p||!g)return;
   f.querySelectorAll(`[data-k="${k}"]`).forEach(x=>x.classList.add('on'));
-  const a=g.getBoundingClientRect(),b=f.getBoundingClientRect();t.innerHTML=`${esc(p.city)}<small>${esc(p.full)}</small>`;
-  const cx=a.left+a.width/2-b.left,hw=t.offsetWidth/2+6;t.style.left=Math.min(b.width-hw,Math.max(hw,cx))+'px';t.style.top=(a.top-b.top)+'px';t.classList.add('on')}
+  const ph=p.i>=0?(PH[cur]||[])[p.i]:null;t.classList.toggle('np',!ph);t.innerHTML=`${ph?`<img src="${esc(ph.th||ph.src)}" alt="">`:''}<b>${esc(p.city)}</b><small>${esc(p.full)}</small>`;
+  const a=g.getBoundingClientRect();cPos(ev&&ev.clientX!=null?ev.clientX:a.left+a.width/2,ev&&ev.clientY!=null?ev.clientY:a.top);t.classList.add('on')}
+function cPos(X,Y){const f=document.getElementById('cmap'),t=document.getElementById('ctip');if(!f||!t)return;const b=f.getBoundingClientRect(),w=t.offsetWidth,h=t.offsetHeight,x=X-b.left,y=Y-b.top,g=14;
+  let top=y-h-g;if(top<4)top=y+g;if(top+h>b.height-4)top=Math.max(4,b.height-h-4);t.style.left=Math.min(b.width-w-4,Math.max(4,x-w/2))+'px';t.style.top=top+'px'}
 function goPlace(i){if(i<0)return;setTab('places');const a=document.querySelectorAll('#pane .place')[i];if(a){a.scrollIntoView({behavior:'smooth',block:'center'});a.classList.add('flash');setTimeout(()=>a.classList.remove('flash'),1600)}}
-card.addEventListener('mouseover',e=>{const t=e.target.closest('#cmap [data-k]');if(t)cTip(+t.dataset.k)});
+card.addEventListener('mouseover',e=>{const t=e.target.closest('#cmap [data-k]');if(t&&ctipK!==+t.dataset.k)cTip(+t.dataset.k,e)});
+card.addEventListener('mousemove',e=>{const t=e.target.closest('#cmap [data-k]');if(t&&ctipK===+t.dataset.k)cPos(e.clientX,e.clientY)});
 card.addEventListener('mouseout',e=>{const t=e.target.closest('#cmap [data-k]');if(t&&!t.contains(e.relatedTarget))cTip(null)});
 card.addEventListener('focusin',e=>{const t=e.target.closest('#cmap .pp');if(t)cTip(+t.dataset.k)});
 card.addEventListener('focusout',e=>{if(e.target.closest('#cmap .pp'))cTip(null)});
 let cTouch=false;card.addEventListener('pointerdown',e=>{cTouch=e.pointerType!=='mouse'});
-card.addEventListener('click',e=>{const t=e.target.closest('#cmap [data-k]');if(!t)return;const k=+t.dataset.k;if(cTouch&&ctipK!==k){cTip(k);return}goPlace(k)});
+card.addEventListener('click',e=>{const t=e.target.closest('#cmap [data-k]');if(!t)return;const k=+t.dataset.k;if(cTouch&&ctipK!==k){cTip(k,e);return}goPlace(k)});
 card.addEventListener('keydown',e=>{const t=e.target.closest('#cmap .pp');if(t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();goPlace(+t.dataset.k)}});
 function mark(){for(const k in pins)pins[k].g.classList.toggle('on',k===cur);for(const k in shapes)shapes[k].classList.toggle('sel',k===cur);if(shapes[cur])vp.insertBefore(shapes[cur],pins[Object.keys(pins)[0]]?.g||null);paintScores();placePulse();if(vb)flashTip(byId(cur))}
 function pick(id,scroll){
@@ -548,8 +553,8 @@ const ROOT=PATHS?new URL(document.baseURI).pathname:'/';
 const fromPath=()=>location.pathname.slice(ROOT.length).split('/').filter(Boolean)[0]||'';
 if(PATHS)addEventListener('popstate',()=>pick(fromPath()||'turkey'));else addEventListener('hashchange',()=>pick(location.hash.slice(1)));
 pick((PATHS&&fromPath())||location.hash.slice(1)||'turkey');
-fetch('photos.json?v=202611270010').then(r=>r.json()).then(d=>{PH=d;credits();if(tab==='places')setTab('places')}).catch(()=>{});
-fetch('map.json?v=202611270130').then(r=>r.json()).then(drawMap).catch(()=>{svg.style.display='none'});
+fetch('photos.json?v=202611271420').then(r=>r.json()).then(d=>{PH=d;credits();if(tab==='places')setTab('places')}).catch(()=>{});
+fetch('map.json?v=202611271420').then(r=>r.json()).then(drawMap).catch(()=>{svg.style.display='none'});
 }
 </script>
 </body>
